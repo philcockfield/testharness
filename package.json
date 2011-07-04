@@ -1,6 +1,6 @@
 {
   "name": "testharness",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Visual test harness for rich client-side JavaScript applications.",
   "homepage": "https://github.com/philcockfield/testharness.js",
   "author": {
@@ -12,6 +12,7 @@
     "type" : "git",
     "url" : "git://github.com/philcockfield/testharness.js.git"
   },
+  "preferGlobal" : "false",
   "dependencies": {
     "express": "2.4.0",
     "sass": ">= 0.0.1",
