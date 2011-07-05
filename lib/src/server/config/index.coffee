@@ -11,16 +11,15 @@ module.exports = (harness, options = {}) ->
 
     # Setup initial conditions.
     options.baseUrl ?= '/testharness'
-    options.baseUrl = '' if options.baseUrl = '/'
     app = harness.app
 
     # Put middleware within the given URL namespace.
     use = (middleware) ->
-        baseUrl = options.baseUrl
-        if baseUrl == ''
+        if options.baseUrl is '/'
+          # Running from the local project (dev/debug).  Don't url namespace.
           app.use middleware
         else
-          app.use baseUrl, middleware
+          app.use options.baseUrl, middleware
 
     # Configuration.
     app.configure ->
@@ -41,6 +40,4 @@ module.exports = (harness, options = {}) ->
 
     # Setup routes.
     routes harness, options
-
-
 
