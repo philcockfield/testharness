@@ -1,6 +1,6 @@
 {
   "name": "testharness",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Visual test harness for rich client-side JavaScript applications.",
   "homepage": "https://github.com/philcockfield/testharness.js",
   "author": {
