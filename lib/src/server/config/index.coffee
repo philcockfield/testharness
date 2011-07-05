@@ -11,11 +11,16 @@ module.exports = (harness, options = {}) ->
 
     # Setup initial conditions.
     options.baseUrl ?= '/testharness'
+    options.baseUrl = '' if options.baseUrl = '/'
     app = harness.app
 
     # Put middleware within the given URL namespace.
     use = (middleware) ->
-        app.use options.baseUrl, middleware
+        baseUrl = options.baseUrl
+        if baseUrl == ''
+          app.use middleware
+        else
+          app.use baseUrl, middleware
 
     # Configuration.
     app.configure ->

@@ -1,8 +1,8 @@
 express   = require 'express'
 
 module.exports = (harness, options) ->
-    testharness = require('testharness')
     app = harness.app
+    paths = harness.paths
 
     app.get '/', (req, res)->
         path = "#{harness.paths.views}/index.jade"
