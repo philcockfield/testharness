@@ -2,6 +2,11 @@ express   = require 'express'
 paths     = require './config/paths'
 config    = require "#{paths.server}/config"
 
+
+# Store global variables.
+global.css = require './util/css'
+
+
 module.exports =
   title: 'TestHarness'
   paths: paths

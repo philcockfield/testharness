@@ -16,10 +16,10 @@ module.exports = (harness, options = {}) ->
     # Put middleware within the given URL namespace.
     use = (middleware) ->
         if options.baseUrl is '/'
-          # Running from the local project (dev/debug).  Don't url namespace.
-          app.use middleware
+            # Running from the local project (dev/debug).  Don't namespace the url.
+            app.use middleware
         else
-          app.use options.baseUrl, middleware
+            app.use options.baseUrl, middleware
 
     # Configuration.
     app.configure ->
@@ -27,7 +27,8 @@ module.exports = (harness, options = {}) ->
         use express.methodOverride()
         use express.cookieParser()
         use express.session( secret: 'your secret here' )
-        use express.compiler( src: paths.public, enable: ['sass'] )
+        use require('stylus').middleware( src: paths.public )
+
         use app.router
         use express.static(paths.public)
 
@@ -40,4 +41,6 @@ module.exports = (harness, options = {}) ->
 
     # Setup routes.
     routes harness, options
+
+
 

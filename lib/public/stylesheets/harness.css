@@ -1,0 +1,13 @@
+body {
+  padding: 50px;
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #ffa500;
+}
+.foo {
+  color: #f00;
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  right: 5%;
+  background: #008000;
+}
