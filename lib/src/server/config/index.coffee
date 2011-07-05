@@ -1,7 +1,6 @@
 express = require 'express'
 paths = require './paths'
 
-
 ###
 Configures the TestHarness
 @param options:
@@ -12,8 +11,8 @@ module.exports = (app, options = {}) ->
     # Setup initial conditions.
     baseUrl = options.baseUrl ?= '/testharness'
 
+    # Put middleware with the given URL namespace.
     use = (middleware) -> app.use baseUrl, middleware
-
 
     # Configuration
     app.configure ->
@@ -30,4 +29,6 @@ module.exports = (app, options = {}) ->
 
     app.configure 'production', ->
         use express.errorHandler()
+
+
 

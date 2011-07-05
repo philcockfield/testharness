@@ -1,2 +1,2 @@
 require('coffee-script');
-require('./app.coffee');
+require('./index.coffee').start({ port:3000 });
