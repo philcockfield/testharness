@@ -1,36 +1,21 @@
 # Module dependencies.
 express = require 'express'
+config = require './lib/src/server/config'
 
 app = module.exports = express.createServer()
-
 paths = require './lib/src/server/config/paths'
 
 
-# Configuration
-app.configure ->
-    app.set 'views', __dirname + '/views'
-    app.set 'view engine', 'jade'
-
-    app.use express.bodyParser()
-    app.use express.methodOverride()
-    app.use express.cookieParser()
-    app.use express.session( secret: 'your secret here' )
-    app.use express.compiler( src: __dirname + '/public', enable: ['sass'] )
-
-    app.use app.router
-    app.use express.static(__dirname + '/public')
-    app.use '/foo', express.static(__dirname + '/node_modules/foo/public')
-
-app.configure 'development', ->
-    app.use express.errorHandler( dumpExceptions: true, showStack: true )
-
-app.configure 'production', ->
-    app.use express.errorHandler()
-
+baseUrl = '/testharness'
+config app, baseUrl: baseUrl
 
 # Routes
 app.get '/', (req, res)->
-    res.render 'index', title: 'TestHarness'
+    path = "#{paths.views}/index.jade"
+    res.render path,
+            title: 'TestHarness'
+            baseUrl: baseUrl
+
 
 # Start
 app.listen(8000);
