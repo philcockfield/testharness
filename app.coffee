@@ -3,6 +3,9 @@ express = require 'express'
 
 app = module.exports = express.createServer()
 
+paths = require './lib/src/server/config/paths'
+
+
 # Configuration
 app.configure ->
     app.set 'views', __dirname + '/views'
