@@ -8,5 +8,6 @@ module.exports =
     lib:    lib
     public: "#{lib}/public"
     views:  "#{lib}/views"
+    src:    "#{lib}/src"
     server: "#{lib}/src/server"
     client: "#{lib}/src/client"

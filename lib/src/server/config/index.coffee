@@ -1,20 +1,23 @@
 express = require 'express'
-paths = require './paths'
+paths   = require './paths'
+routes  = require '../routes'
 
 ###
 Configures the TestHarness
 @param options:
         - baseUrl: The base URL path to put the TestHarness within (default: /testharness).
 ###
-module.exports = (app, options = {}) ->
+module.exports = (harness, options = {}) ->
 
     # Setup initial conditions.
-    baseUrl = options.baseUrl ?= '/testharness'
+    options.baseUrl ?= '/testharness'
+    app = harness.app
 
-    # Put middleware with the given URL namespace.
-    use = (middleware) -> app.use baseUrl, middleware
+    # Put middleware within the given URL namespace.
+    use = (middleware) ->
+        app.use options.baseUrl, middleware
 
-    # Configuration
+    # Configuration.
     app.configure ->
         use express.bodyParser()
         use express.methodOverride()
@@ -29,6 +32,10 @@ module.exports = (app, options = {}) ->
 
     app.configure 'production', ->
         use express.errorHandler()
+
+
+    # Setup routes.
+    routes harness, options
 
 
 
