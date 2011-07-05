@@ -12,20 +12,22 @@ module.exports = (app, options = {}) ->
     # Setup initial conditions.
     baseUrl = options.baseUrl ?= '/testharness'
 
+    use = (middleware) -> app.use baseUrl, middleware
+
+
     # Configuration
     app.configure ->
-        app.use express.bodyParser()
-        app.use express.methodOverride()
-        app.use express.cookieParser()
-        app.use express.session( secret: 'your secret here' )
-        app.use express.compiler( src: paths.public, enable: ['sass'] )
-
-        app.use app.router
-        app.use baseUrl, express.static(paths.public)
+        use express.bodyParser()
+        use express.methodOverride()
+        use express.cookieParser()
+        use express.session( secret: 'your secret here' )
+        use express.compiler( src: paths.public, enable: ['sass'] )
+        use app.router
+        use express.static(paths.public)
 
     app.configure 'development', ->
-        app.use express.errorHandler( dumpExceptions: true, showStack: true )
+        use express.errorHandler( dumpExceptions: true, showStack: true )
 
     app.configure 'production', ->
-        app.use express.errorHandler()
+        use express.errorHandler()
 
