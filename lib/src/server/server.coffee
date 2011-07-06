@@ -1,10 +1,6 @@
 express   = require 'express'
 paths     = require './config/paths'
-config    = require "#{paths.server}/config"
-
-
-# Store global variables.
-global.css = require './util/css'
+config    = require "#{paths.server}/config/config"
 
 
 module.exports =
@@ -24,9 +20,10 @@ module.exports =
       @configure app, options
 
       # Start listening on requested port.
-      app.listen options.port ?= 8000
-      console.log ''
-      console.log "#{@title} server listening on port #{app.address().port} in #{app.settings.env} mode"
+      app.listen options.port ?= 8000, =>
+          console.log ''
+          console.log "#{@title} server listening on port #{app.address().port} in #{app.settings.env} mode"
+          console.log '---'
 
       # Finish up.
       app
@@ -37,6 +34,7 @@ module.exports =
           - baseUrl: The base URL path to put the TestHarness within (default: /testharness).
   ###
   configure: (app, options) ->
-                    @.app = app
-                    config @, options
+        @baseUrl = options.baseUrl ?= '/testharness'
+        @app = app
+        config @, options
 
