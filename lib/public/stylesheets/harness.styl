@@ -1,21 +1,100 @@
+// ------------------------------------------------------
+//                   Constants
+// ------------------------------------------------------
+headerHeight = 43
+footerHeight = 43
+leftWidth = 320
+borderColor = darken(white, 60%)
+
+// ------------------------------------------------------
+//                      Utility
+// ------------------------------------------------------
+toUnit(prop, value, unit=px)
+    if value is not null
+      {prop} unit(value, unit)
+
+absPosition(left = 0, top = 0, right = 0, bottom = 0, unit=px)
+    position absolute
+    toUnit 'left', left, unit
+    toUnit 'top', top, unit
+    toUnit 'right', right, unit
+    toUnit 'bottom', bottom, unit
+
+gradient(type, start, stops...)
+  prop = current-property
+  stops = unquote(join(', ', stops))
+  webkit = '-webkit-gradient(type, %s, %s, %s)' % (type start stops)
+  add-property(prop[0], webkit)
+  '-moz-%s-gradient(%s, %s)' % (type start stops)
+
+
+gradientY(defaultColor, topColor, bottomColor)
+    prop = current-property[0]
+    add-property(prop, defaultColor)
+
+    // WebKit
+    add-property(prop, -webkit-gradient(linear, left top, left bottom, from(topColor), to(bottomColor)))
+
+    // Firefox (3.6+)
+    add-property(prop, -moz-linear-gradient(top,  topColor,  bottomColor))
+
+
+
+// ------------------------------------------------------
+//                        Common
+// ------------------------------------------------------
+div.bevel.highlight
+    absPosition(0, 0, 0, null)
+    height: 1px
+    background: white
+
+.bar
+    default = #e0e1e6
+    top     = #f5f5f7
+    bottom  = #a6acba
+    background: gradientY(default, top, bottom)
+
 
 body
-  padding 50px
   font 15px "Lucida Grande", Helvetica, Arial, sans-serif
-  color orange
 
-toUnit(prop, value, unit=px)
-  if value is not null
-    {prop} unit(value, unit)
 
-abs-pos(left = 0, top = 0, right = 0, bottom = 0, unit=px)
-  position absolute
-  toUnit 'left', left, unit
-  toUnit 'top', top, unit
-  toUnit 'right', right, unit
-  toUnit 'bottom', bottom, unit
+// ------------------------------------------------------
+//                        Shell
+// ------------------------------------------------------
+div.harness.shell
+  absPosition()
+  background: white
 
-.foo
-  color red
-  abs-pos(20, 20, 5, null, '%')
-  background green
+  div.region
+    overflow: hidden
+
+  div.header
+    absPosition(0, 0, 0, null)
+    height: unit(headerHeight, px)
+    border-bottom: solid 1px borderColor
+
+
+  div.footer
+    absPosition(0, null, 0, 0)
+    height: unit(footerHeight, px)
+    border-top: solid 1px borderColor
+
+  div.left
+    absPosition(0, 0, null, 0)
+    width: unit(leftWidth, px)
+    border-right: solid 1px borderColor
+    background: #f5f5f5
+    div.region
+      absPosition(0, headerHeight + 1, 0, footerHeight + 1)
+
+  div.main
+    absPosition(leftWidth + 1, 0, 0, 0)
+    div.region
+      absPosition(0, headerHeight + 1, 0, footerHeight + 1)
+
+  div.header > div.region
+    absPosition()
+
+  div.footer > div.region
+    absPosition()

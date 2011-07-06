@@ -1,4 +1,9 @@
-h1= title
-p Welcome to #{title}
-
-div.foo Foo
+.harness.shell
+  .left
+    != partial('header')
+    .region.body
+    != partial('footer')
+  .main
+    != partial('header')
+    .region.body
+    != partial('footer')
