@@ -12,6 +12,13 @@ div.bevel.highlight {
   background: -moz-linear-gradient(top, #f5f5f7, #a6acba);
   background:   background: -moz-linear-gradient(top, #f5f5f7, #a6acba);;
 }
+.abs_fill {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+}
 body {
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -72,17 +79,17 @@ div.harness.shell div.main div.region {
   right: 0px;
   bottom: 44px;
 }
-div.harness.shell div.header > div.region {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
+div.main div.welcome {
+  background: #007bd7;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0a93ec), to(#003683));
+  background: -moz-linear-gradient(top, #0a93ec, #003683);
+  background:   background: -moz-linear-gradient(top, #0a93ec, #003683);;
 }
-div.harness.shell div.footer > div.region {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
+div.main div.welcome div.grid {
+  background-image: url("../images/welcome/grid_lines.png");
+}
+div.main div.welcome div.title {
+  background-image: url("../images/welcome/title.png");
+  background-repeat: no-repeat;
+  background-position: center;
 }

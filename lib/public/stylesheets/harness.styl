@@ -54,6 +54,10 @@ div.bevel.highlight
     bottom  = #a6acba
     background: gradientY(default, top, bottom)
 
+.abs_fill {
+  absPosition()
+}
+
 
 body
   font 15px "Lucida Grande", Helvetica, Arial, sans-serif
@@ -93,8 +97,22 @@ div.harness.shell
     div.region
       absPosition(0, headerHeight + 1, 0, footerHeight + 1)
 
-  div.header > div.region
-    absPosition()
 
-  div.footer > div.region
-    absPosition()
+
+
+// ------------------------------------------------------
+//                     Welcome
+// ------------------------------------------------------
+div.main div.welcome
+    default = #007bd7
+    top     = #0a93ec
+    bottom  = #003683
+    background: gradientY(default, top, bottom)
+
+    div.grid
+      background-image: url(../images/welcome/grid_lines.png)
+
+    div.title
+      background-image: url(../images/welcome/title.png)
+      background-repeat: no-repeat
+      background-position: center
