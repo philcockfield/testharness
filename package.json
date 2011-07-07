@@ -2,7 +2,7 @@
   "name": "testharness",
   "version": "0.0.6",
   "description": "Visual test harness for rich client-side JavaScript applications.",
-  "homepage": "https://github.com/philcockfield/testharness.js",
+  "homepage": "https://github.com/philcockfield/testharness",
   "author": {
     "name": "Phil Cockfield",
     "url": "https://github.com/philcockfield"
@@ -10,7 +10,7 @@
   "main": "./index.js",
   "repository": {
     "type" : "git",
-    "url" : "git://github.com/philcockfield/testharness.js.git"
+    "url" : "git://github.com/philcockfield/testharness.git"
   },
   "dependencies": {
     "express": "2.4.0",
@@ -24,7 +24,7 @@
           [
             {
               "type" : "MIT",
-              "url" : "https://github.com/philcockfield/testharness.js/blob/master/LICENCE-MIT"
+              "url" : "https://github.com/philcockfield/testharness/blob/master/LICENCE-MIT"
             }
           ]
 }
