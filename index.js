@@ -1,3 +1,3 @@
-// Alias from here to the actual TestHarness module.
-module.exports = require('./lib/src/server/harness.server')
+// Alias from here to the actual TestHarness module (in CoffeeScript).
+module.exports = require('./lib/src/server/harness.server.coffee');
 
