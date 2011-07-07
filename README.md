@@ -4,13 +4,13 @@ Visual test harness for rich client-side JavaScript applications.
 
 --------
 
-#### Install using NPM
+### Install using NPM
 
 
     npm install testharness
     
 
-#### Running from Express
+### Running from Express
 
 ```coffee-script
 
@@ -18,11 +18,11 @@ Visual test harness for rich client-side JavaScript applications.
   express = require 'express'
   app = express.createServer()
 
-  # Configure your app as you please...
+  # Configure your app as you please
+  # ...
 
-  # Configure the TestHarness
-  testharness = require 'testharness'
-  testharness.configure app
+  # Register the TestHarness into your app.
+  require('testharness').configure app
 
   # Start
   app.listen(process.env.PORT || 3000);
@@ -40,7 +40,7 @@ option to configure like this:
 
 ```
 
-## Licence - MIT
+## Licence
 
 The MIT License (MIT)
 Copyright (c) 2011 Phil Cockfield
