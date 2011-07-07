@@ -16,7 +16,7 @@ module.exports =
         @baseUrl  = '' if @baseUrl is '/'
 
         # Home
-        @app.get @baseUrl, (req, res) =>
+        @app.get harness.baseUrl, (req, res) =>
             @render res, 'index',
                           title: harness.title
 
@@ -32,7 +32,4 @@ module.exports =
     render: (response, template, options) ->
             extension = options.extension ?= 'jade'
             options.baseUrl ?= @baseUrl
-
-            console.log 'options.baseUrl', options.baseUrl
-
             response.render "#{@paths.views}/#{template}.#{extension}", options
