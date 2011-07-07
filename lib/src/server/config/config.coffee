@@ -27,6 +27,8 @@ module.exports = (harness) ->
         use express.cookieParser()
         use express.session( secret: 'your secret here' )
         use require('stylus').middleware( src: paths.public )
+        use express.favicon("#{paths.public}/images", maxAge: 2592000000)
+
 
         use app.router
         use express.static(paths.public)

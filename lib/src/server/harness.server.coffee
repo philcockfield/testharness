@@ -1,7 +1,7 @@
 express   = require 'express'
 paths     = require './config/paths'
 config    = require "#{paths.server}/config/config"
-
+core      = require 'open.core'
 
 module.exports =
   title: 'TestHarness'
