@@ -15,7 +15,7 @@ module.exports =
         # Prepare the base-url for passing to templates.
         @baseUrl  = '' if @baseUrl is '/'
 
-        # Home
+        # Home.
         @app.get harness.baseUrl, (req, res) =>
             @render res, 'index',
                           title: harness.title
