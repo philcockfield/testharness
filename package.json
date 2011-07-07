@@ -16,7 +16,8 @@
     "express": "2.4.0",
     "stylus": ">= 0.13.5",
     "jade": ">= 0.0.1",
-    "coffee-script": ">= 1.1.1"
+    "coffee-script": ">= 1.1.1",
+    "jasmine-node": ">= 1.0.6"
   },
   "keywords": ["test", "harness", "rich client", "mvc"],
   "licenses":
