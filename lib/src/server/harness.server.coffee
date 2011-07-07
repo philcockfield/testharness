@@ -3,6 +3,7 @@ paths     = require './config/paths'
 config    = require "#{paths.server}/config/config"
 core      = require 'open.core'
 
+
 module.exports =
   title: 'TestHarness'
   paths: paths
@@ -16,7 +17,7 @@ module.exports =
   ###
   start: (options = {}) ->
       # Create and configure the server.
-      app = module.exports = express.createServer()
+      app = express.createServer()
       @configure app, options
 
       # Start listening on requested port.

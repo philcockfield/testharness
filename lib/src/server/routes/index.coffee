@@ -1,14 +1,17 @@
 express = require 'express'
+core    = require 'open.core'
 
 module.exports =
     ###
     Initializes the routes.
-    @param server: the root QUI server module.
+    @param server: the root TestHarness server module.
     ###
     init: (harness) ->
         # Setup initial conditions.
+        app       = harness.app
+        send      = core.util.send
+        @app      = app
         @harness  = harness
-        @app      = harness.app
         @paths    = harness.paths
         @baseUrl  = harness.baseUrl
 
@@ -16,15 +19,26 @@ module.exports =
         @baseUrl  = '' if @baseUrl is '/'
 
         # Home.
-        @app.get harness.baseUrl, (req, res) =>
+        app.get harness.baseUrl, (req, res) =>
             @render res, 'index',
                           title: harness.title
 
+        # TEMP
+        app.get '/build/:package?.js', (req, res) =>
+            package   = req.params.package
+            minified  = _(package).endsWith '-min'
+
+            switch req.params.package
+              when 'client', 'client-min'
+                  # Server fresh versions of the files (but don't save).
+                  compiler = new core.util.javascript.Compiler(@paths.client)
+                  compiler.build minified, (code) -> send.script res, code
+              else
+                res.send 404
+
+
     ###
     Renders the specified template from the 'views' path.
-    NB: This is not all setup as the default view-engine because
-        QUI may be used as a library, and therefore we cannot overwrite
-        these settings.
     @param response object to write to.
     @param template: path to the template within the 'views' folder.
     @param options: variables to pass to the template.
