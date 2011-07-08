@@ -1,0 +1,19 @@
+!!!
+html
+  head
+    title= title
+    link(rel='stylesheet', href="#{baseUrl}/stylesheets/harness.css")
+
+    script(type='text/javascript', src='/build/client-min.js')
+
+  body
+    .harness.shell
+      .left
+        != partial('header')
+        .region.body
+        != partial('footer')
+      .main
+        != partial('header')
+        .region.body
+          != partial('main_default')
+        != partial('footer')

@@ -20,8 +20,9 @@ module.exports =
 
         # Home.
         app.get harness.baseUrl, (req, res) =>
-            @render res, 'index',
+            @render res, 'shell/index',
                           title: harness.title
+                          layout: false
 
         # TEMP
         app.get '/build/:package?.js', (req, res) =>
