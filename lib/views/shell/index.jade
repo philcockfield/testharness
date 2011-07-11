@@ -27,6 +27,6 @@ html
       console.log '  $', $
       console.log '  _', _
       console.log '  _', _.each([1,2,3], (i) -> console.log 'i: ', i )
-      console.log '  _.string', _.endsWith
+      console.log '  _.string', _('foobar').endsWith 'bar'
       console.log 'Backbone', Backbone
 
