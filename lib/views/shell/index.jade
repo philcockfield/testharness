@@ -4,7 +4,7 @@ html
     title= title
     link(rel='stylesheet', href="#{baseUrl}/stylesheets/harness.css")
 
-    script(type='text/javascript', src='/javascripts/libs.js')
+    script(type='text/javascript', src='/core/libs.js')
     script(type='text/javascript', src='/build/client-min.js')
 
   body
@@ -23,15 +23,10 @@ html
       foo = require 'foo'
       console.log 'foo', foo
 
-      require 'jquery-1.6.2'
-      _ = require 'underscore-1.1.6'
-      Backbone = require 'backbone-0.5.1'
-
-      console.log '$', $
-      console.log 'underscore ', _
-      _.each([1,2,3], (i) -> console.log '> ', i)
+      console.log 'Libs:'
+      console.log '  $', $
+      console.log '  _', _
+      console.log '  _', _.each([1,2,3], (i) -> console.log 'i: ', i )
+      console.log '  _.string', _.endsWith
       console.log 'Backbone', Backbone
 
-
-
-      # console.log '_', _

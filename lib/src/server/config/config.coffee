@@ -1,6 +1,7 @@
 express = require 'express'
 paths   = require './paths'
 routes  = require '../routes'
+core = require 'core.server'
 
 ###
 Configures the TestHarness
@@ -11,6 +12,9 @@ module.exports = (harness) ->
     # Setup initial conditions.
     app     = harness.app
     baseUrl = harness.baseUrl
+
+    # Initialize the open.core library
+    core.configure app
 
     # Put middleware within the given URL namespace.
     use = (middleware) ->
@@ -28,7 +32,6 @@ module.exports = (harness) ->
         use express.session( secret: 'your secret here' )
         use require('stylus').middleware( src: paths.public )
         use express.favicon("#{paths.public}/images/favicon.ico", maxAge: 2592000000)
-
 
         use app.router
         use express.static(paths.public)
