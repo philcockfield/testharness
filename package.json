@@ -13,7 +13,7 @@
     "url" : "git://github.com/philcockfield/testharness.git"
   },
   "dependencies": {
-    "open.core": ">= 0.0.3",
+    "open.core": ">= 0.0.4",
     "express": "2.4.0",
     "stylus": ">= 0.13.5",
     "jade": ">= 0.0.1",
