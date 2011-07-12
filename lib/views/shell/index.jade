@@ -5,7 +5,8 @@ html
     link(rel='stylesheet', href="#{baseUrl}/stylesheets/harness.css")
 
     script(type='text/javascript', src='/core/libs.js')
-    script(type='text/javascript', src='/build/client-min.js')
+    script(type='text/javascript', src='/core/build/core.js?')
+    script(type='text/javascript', src='/build/client.js')
 
   body
     .harness.shell
@@ -20,13 +21,38 @@ html
         != partial('footer')
 
     :coffeescript
-      foo = require 'foo'
-      console.log 'foo', foo
+      writeLibs = ->
+          console.log 'Libs:'
+          console.log '  $', $
+          console.log '  _', _
+          console.log '  _', _.each([1,2,3], (i) -> console.log 'i: ', i )
+          console.log '  _.string', _('foobar').endsWith 'bar'
+          console.log 'Backbone', Backbone
+          console.log '------'
 
-      console.log 'Libs:'
-      console.log '  $', $
-      console.log '  _', _
-      console.log '  _', _.each([1,2,3], (i) -> console.log 'i: ', i )
-      console.log '  _.string', _('foobar').endsWith 'bar'
-      console.log 'Backbone', Backbone
+      core = require 'core.client'
+      console.log 'core', core
+
+      class Tmpl extends core.mvc.Template
+        root: """
+          <div>Foo: <%= title %></div>
+        """
+
+      class SampleView extends core.mvc.View
+        constructor: ->
+            super
+            @tmpl = new Tmpl()
+            @render()
+        render: ->
+            @html @tmpl.root( title: 'Hello' )
+
+
+      view = new SampleView
+      console.log 'view', view
+
+      $('.left .region.body').append view.el
+      view.visible false
+      view.visible true
+
+
 

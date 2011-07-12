@@ -13,9 +13,6 @@ module.exports = (harness) ->
     app     = harness.app
     baseUrl = harness.baseUrl
 
-    # Initialize the open.core library
-    core.configure app
-
     # Put middleware within the given URL namespace.
     use = (middleware) ->
         if baseUrl is '/'
@@ -42,14 +39,14 @@ module.exports = (harness) ->
                         src: paths.public
                         compile: compile
 
-#        use require('stylus').middleware( src: paths.public )
-
-
     app.configure 'development', ->
         use express.errorHandler( dumpExceptions: true, showStack: true )
 
     app.configure 'production', ->
         use express.errorHandler()
+
+    # Initialize the [open.core] library
+    core.configure app
 
     # Setup routes.
     routes.init harness

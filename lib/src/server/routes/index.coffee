@@ -24,7 +24,6 @@ module.exports =
                           title: harness.title
                           layout: false
 
-        # TEMP
         app.get '/build/:package?.js', (req, res) =>
             package   = req.params.package
             minified  = _(package).endsWith '-min'
