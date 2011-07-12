@@ -1,7 +1,7 @@
 express = require 'express'
 paths   = require './paths'
 routes  = require '../routes'
-core = require 'core.server'
+core    = require 'core.server'
 
 ###
 Configures the TestHarness
@@ -30,11 +30,20 @@ module.exports = (harness) ->
         use express.methodOverride()
         use express.cookieParser()
         use express.session( secret: 'your secret here' )
-        use require('stylus').middleware( src: paths.public )
         use express.favicon("#{paths.public}/images/favicon.ico", maxAge: 2592000000)
-
         use app.router
         use express.static(paths.public)
+
+        # Setup CSS (with references to Open.Core)
+        stylus = require 'stylus'
+        compile = (str, path) ->
+            stylus(str).include "#{core.paths.public}/stylesheets"
+        use stylus.middleware
+                        src: paths.public
+                        compile: compile
+
+#        use require('stylus').middleware( src: paths.public )
+
 
     app.configure 'development', ->
         use express.errorHandler( dumpExceptions: true, showStack: true )
