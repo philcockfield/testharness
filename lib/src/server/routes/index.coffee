@@ -16,6 +16,7 @@ module.exports =
         @baseUrl  = harness.baseUrl
 
         # Prepare the base-url for passing to templates.
+        @baseUrl  = '' unless @baseUrl?
         @baseUrl  = '' if @baseUrl is '/'
 
         # Home.
