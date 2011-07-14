@@ -5,8 +5,8 @@ html
     link(rel='stylesheet', href="#{baseUrl}/stylesheets/harness.css")
 
     script(type='text/javascript', src='/core/libs.js')
-    script(type='text/javascript', src='/core/build/core.js?')
-    script(type='text/javascript', src='/build/client.js')
+    script(type='text/javascript', src='/core/javascripts/core.js')
+    script(type='text/javascript', src='/javascripts/harness.js')
 
   body
     .harness.shell
@@ -30,7 +30,7 @@ html
           console.log 'Backbone', Backbone
           console.log '------'
 
-      core = require 'core.client'
+      core = require 'core'
       console.log 'core', core
 
       class Tmpl extends core.mvc.Template

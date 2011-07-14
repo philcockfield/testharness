@@ -7,6 +7,8 @@ core      = require 'open.core'
 module.exports =
   title: 'TestHarness'
   paths: paths
+  core:  core
+  util:  require './util'
 
   ###
   Starts the server (only use when not running your own server).
@@ -20,14 +22,17 @@ module.exports =
       app = express.createServer()
       @configure app, options
 
-      # Start listening on requested port.
-      app.listen options.port ?= 8000, =>
-          console.log ''
-          console.log "#{@title} server listening on port #{app.address().port} in #{app.settings.env} mode"
-          console.log '---'
+      # Build client-side JavaScript.
+      @util.build.client =>
 
-      # Finish up.
-      app
+          # Start listening on requested port.
+          app.listen options.port ?= 8000, =>
+              console.log ''
+              console.log "#{@title} server listening on port #{app.address().port} in #{app.settings.env} mode"
+              console.log '---'
+
+          # Finish up.
+          app
 
   ###
   Configures the TestHarness
@@ -38,4 +43,23 @@ module.exports =
         @baseUrl = options.baseUrl ?= '/testharness'
         @app = app
         config @, options
+
+
+
+  ###
+  Generates the standard copyright notice (MIT).
+  @param options (optional)
+          - asComment: Flag indicating if the copyright notice should be within an HTML comment.
+  ###
+  copyright: (options = {}) ->
+      notice = "Copyright #{new Date().getFullYear()} Phil Cockfield. All rights reserved."
+      if options.asComment
+                notice = """
+                /*
+                  #{notice}
+                  The MIT License (MIT)
+                  https://github.com/philcockfield/testharness
+                */
+                """
+      notice
 

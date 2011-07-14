@@ -25,19 +25,6 @@ module.exports =
                           title: harness.title
                           layout: false
 
-        app.get '/build/:package?.js', (req, res) =>
-            package   = req.params.package
-            minified  = _(package).endsWith '-min'
-
-            switch req.params.package
-              when 'client', 'client-min'
-                  # Server fresh versions of the files (but don't save).
-                  compiler = new core.util.javascript.Compiler(@paths.client)
-                  compiler.build minified, (code) -> send.script res, code
-              else
-                res.send 404
-
-
     ###
     Renders the specified template from the 'views' path.
     @param response object to write to.
