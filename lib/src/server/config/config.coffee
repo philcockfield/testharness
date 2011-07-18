@@ -47,7 +47,7 @@ module.exports = (harness) ->
     # Initialize the [open.core] library
     core.configure app
     core.configure.specs app,
-              specsDir: "#{paths.specs}/client"
+#              specsDir: "#{paths.specs}/client///"
               title: 'TestHarness Specs'
               url: '/specs'
 
