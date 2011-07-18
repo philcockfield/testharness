@@ -26,7 +26,6 @@ module.exports = (harness) ->
         use express.bodyParser()
         use express.methodOverride()
         use express.cookieParser()
-        use express.session( secret: 'your secret here' )
         use express.favicon("#{paths.public}/images/favicon.ico", maxAge: 2592000000)
         use app.router
         use express.static(paths.public)
@@ -47,6 +46,10 @@ module.exports = (harness) ->
 
     # Initialize the [open.core] library
     core.configure app
+    core.configure.specs app,
+              specsDir: "#{paths.specs}/client"
+              title: 'TestHarness Specs'
+              url: '/specs'
 
     # Setup routes.
     routes.init harness

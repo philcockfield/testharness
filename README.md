@@ -42,7 +42,7 @@ option to configure like this:
 
 ## Licence
 
-The MIT License (MIT)  
+The [MIT License](http://www.opensource.org/licenses/mit-license.php) (MIT)
 Copyright © 2011 Phil Cockfield
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of

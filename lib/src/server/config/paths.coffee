@@ -11,6 +11,8 @@ paths =
     src:    "#{lib}/src"
     server: "#{lib}/src/server"
     client: "#{lib}/src/client"
+    test:   "#{root}/test"
+    specs:  "#{root}/test/specs"
 module.exports = paths
 
 # Put the root modules into the global paths.
