@@ -1,6 +1,6 @@
 {
   "name": "testharness",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Visual test harness for cleanly crafting rich client-side JavaScript applications.",
   "homepage": "https://github.com/philcockfield/testharness",
   "author": {
@@ -13,7 +13,7 @@
     "url" : "git://github.com/philcockfield/testharness.git"
   },
   "dependencies": {
-    "open.core": ">= 0.1.1",
+    "open.core": ">= 0.1.2",
     "express": "2.4.0",
     "stylus": ">= 0.13.5",
     "jade": ">= 0.0.1",
