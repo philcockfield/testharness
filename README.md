@@ -21,7 +21,7 @@ Visual test harness for rich client-side JavaScript applications.
   # Configure your app as you please
   # ...
 
-  # Register the TestHarness into your app.
+  # Turn on the TestHarness.
   require('testharness').configure app
 
   # Start
