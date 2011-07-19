@@ -32,7 +32,7 @@ Visual test harness for rich client-side JavaScript applications.
 The **TestHarness** will be available on `http://localhost:8000/testharness`
 
 If you wish to have the harness on a different URL, pass the **baseUrl**
-option to `configure` like this:
+option to the `configure` method like this:
 
 ```coffee-script
 
