@@ -14,7 +14,7 @@ Visual test harness for rich client-side JavaScript applications.
 
 ```coffee-script
 
-  # Create the server
+  # Create the server.
   express = require 'express'
   app = express.createServer()
 
@@ -25,11 +25,11 @@ Visual test harness for rich client-side JavaScript applications.
   require('testharness').configure app
 
   # Start
-  app.listen(process.env.PORT || 3000);
+  app.listen process.env.PORT ?= 8000
 
 ```
 
-The TestHarness will be available on `/testharness`
+The TestHarness will be available on `http://localhost:8000/testharness`
 
 If you wish to have the harness on a different URL, pass the `baseUrl`
 option to configure like this:

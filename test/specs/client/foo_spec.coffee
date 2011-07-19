@@ -6,6 +6,5 @@ describe 'FOO', ->
   it 'gets the root harness client', ->
     harness = require 'harness/harness.client'
     console.log 'harness', harness
-
     expect(harness).toBeDefined()
 
