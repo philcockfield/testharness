@@ -3,3 +3,9 @@ describe 'FOO', ->
     console.log 'My Test',123
     expect(1).toEqual 1
 
+  it 'gets the root harness client', ->
+    harness = require 'harness/harness.client'
+    console.log 'harness', harness
+
+    expect(harness).toBeDefined()
+
