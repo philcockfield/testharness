@@ -1,5 +1,5 @@
 express = require 'express'
-nib     = require 'nib'
+css     = require './css'
 paths   = require './paths'
 routes  = require '../routes'
 core    = require 'core.server'
@@ -28,19 +28,9 @@ module.exports = (harness) ->
         use express.methodOverride()
         use express.cookieParser()
         use express.favicon("#{paths.public}/images/favicon.ico", maxAge: 2592000000)
-        use app.router
+        css.configure use # CSS pre-processor (Stylus)
         use express.static(paths.public)
-
-        # Setup CSS (with references to Open.Core)
-        stylus = require 'stylus'
-        compile = (str, path) ->
-            stylus(str)
-                .include("#{core.paths.public}/stylesheets")
-                .include(paths.public)
-                .use nib()
-        use stylus.middleware
-                        src: paths.public
-                        compile: compile
+        use app.router
 
 
     app.configure 'development', ->

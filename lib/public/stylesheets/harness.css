@@ -20,7 +20,7 @@ div.bevel.highlight {
   bottom: 0px;
 }
 .foo {
-  background: #f00;
+  background: #00f;
   font-size: 50px;
   -moz-border-radius-topleft: 5px;
   -webkit-border-top-left-radius: 5px;
@@ -34,10 +34,7 @@ div.bevel.highlight {
   -moz-border-radius-bottomright: 20px;
   -webkit-border-bottom-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  margin: 20px;
-}
-.foo {
-  background: #f00;
+  margin: 30px;
 }
 .bar {
   background: #e0e1e6;
