@@ -31,9 +31,6 @@ module.exports = (harness) ->
         use express.static(paths.public)
 
         # Setup CSS (with references to Open.Core)
-
-        console.log 'CSS', "#{core.paths.public}/stylesheets"
-
         stylus = require 'stylus'
         compile = (str, path) ->
             stylus(str).include "#{core.paths.public}/stylesheets"
