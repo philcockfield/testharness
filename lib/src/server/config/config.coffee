@@ -1,4 +1,5 @@
 express = require 'express'
+nib     = require 'nib'
 paths   = require './paths'
 routes  = require '../routes'
 core    = require 'core.server'
@@ -33,10 +34,14 @@ module.exports = (harness) ->
         # Setup CSS (with references to Open.Core)
         stylus = require 'stylus'
         compile = (str, path) ->
-            stylus(str).include "#{core.paths.public}/stylesheets"
+            stylus(str)
+                .include("#{core.paths.public}/stylesheets")
+                .include(paths.public)
+                .use nib()
         use stylus.middleware
                         src: paths.public
                         compile: compile
+
 
     app.configure 'development', ->
         use express.errorHandler( dumpExceptions: true, showStack: true )
