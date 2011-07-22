@@ -40,7 +40,7 @@ module.exports = (harness) ->
         use express.errorHandler()
 
     # Initialize the [open.core] library
-    core.configure app
+    core.configure app, express: express
     core.configure.specs app,
                       title:      'TestHarness Specs'
                       url:        '/specs'
