@@ -44,7 +44,7 @@ module.exports = (harness) ->
     core.configure.specs app,
                       title:      'TestHarness Specs'
                       url:        '/specs'
-                      specsDir:   "#{paths.specs}/client/"
+                      specsDir:   "#{paths.specs}/harness.client/"
                       sourceUrls: '/javascripts/harness.js'
 
 

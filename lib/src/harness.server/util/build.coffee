@@ -12,6 +12,8 @@ module.exports =
                                   - minified: false - returns the unminified, packed code.
   ###
   client: (callback) ->
+
+
       harness  = require 'harness.server'
       core     = harness.core
       folder    = "#{harness.paths.public}/javascripts"

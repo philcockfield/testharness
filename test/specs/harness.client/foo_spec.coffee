@@ -4,7 +4,7 @@ describe 'FOO', ->
     expect(1).toEqual 1
 
   it 'gets the root harness client', ->
-    harness = require 'harness/harness.client'
+    harness = require 'harness'
     console.log 'harness', harness
     expect(harness).toBeDefined()
 
