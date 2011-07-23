@@ -54,7 +54,11 @@ module.exports = (harness, app, options = {}) ->
                       title:      'TestHarness Specs'
                       url:        '/specs'
                       specsDir:   "#{paths.specs}/harness.client/"
-                      sourceUrls: '/javascripts/harness.js'
+                      sourceUrls: [
+                        "#{baseUrl}/core/libs.js"
+                        "#{baseUrl}/core/core.js"
+                        "#{baseUrl}/javascripts/harness.js"
+                      ]
 
     # Setup routes.
     routes.init harness
