@@ -41,10 +41,8 @@ module.exports =
   @param options:
           - baseUrl: The base URL path to put the TestHarness within (default: /testharness).
   ###
-  configure: (app, options = {}) ->
-        @app      = app
-        @baseUrl  = options.baseUrl ?= '/testharness'
-        configure(@, options)
+  configure: (app, options = {}) -> configure(@, app, options)
+
 
 
 

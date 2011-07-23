@@ -9,3 +9,5 @@ describe 'server/harness', ->
     expect(client).toBeDefined()
     expect(harness.client).toEqual client
 
+
+

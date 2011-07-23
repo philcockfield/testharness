@@ -6,3 +6,7 @@ global.test =
   server: harness
   client: harness.client
 
+  resetServer: ->
+      harness.baseUrl = undefined
+      harness.app = undefined
+

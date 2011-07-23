@@ -4,20 +4,30 @@ paths   = require './paths'
 routes  = require '../routes'
 core    = require 'core.server'
 
+
 ###
 Configures the TestHarness
 @param harness: The root TestHarness module.
+@param app:     The express app.
+@param options:
+        - baseUrl: The base URL path to put the TestHarness within (default: /testharness).
 ###
-module.exports = (harness) ->
+module.exports = (harness, app, options = {}) ->
 
     # Setup initial conditions.
-    app     = harness.app
-    baseUrl = harness.baseUrl
+    harness.app = app
+
+    # Format and store the base url.
+    baseUrl = options.baseUrl ?= '/testharness'
+    baseUrl = _.trim(baseUrl)
+    runningLocally = baseUrl is '/'
+    baseUrl = '' if runningLocally
+    harness.baseUrl = baseUrl
 
     # Put middleware within the given URL namespace.
     use = (middleware) ->
-        if baseUrl is '/'
-            # Running from the local project (dev/debug).  Don't namespace the url.
+        if runningLocally
+            # Running from the local project (dev/debug mode).  Don't namespace the url.
             app.use middleware
         else
             app.use baseUrl, middleware
@@ -32,7 +42,6 @@ module.exports = (harness) ->
         use express.static(paths.public)
         use app.router
 
-
     app.configure 'development', ->
         use express.errorHandler( dumpExceptions: true, showStack: true )
 
@@ -46,7 +55,6 @@ module.exports = (harness) ->
                       url:        '/specs'
                       specsDir:   "#{paths.specs}/harness.client/"
                       sourceUrls: '/javascripts/harness.js'
-
 
     # Setup routes.
     routes.init harness
