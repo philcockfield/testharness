@@ -11,11 +11,19 @@ module.exports =
         # Setup initial conditions.
         app       = harness.app
         render    = harness.util.render
+        baseUrl   = harness.baseUrl
 
         # Home.
-        homeUrl = harness.baseUrl
+        homeUrl = baseUrl
         homeUrl = '/' if homeUrl is ''
         app.get homeUrl, (req, res) =>
             render res, 'shell/index',
-                          title: harness.title
+                          title: 'TestHarness'
                           layout: false
+
+        # Dev.
+        app.get "#{baseUrl}/dev", (req, res) -> 
+            render res, 'dev/index',
+                          title: 'TestHarness (Dev)'
+                          layout: false
+            

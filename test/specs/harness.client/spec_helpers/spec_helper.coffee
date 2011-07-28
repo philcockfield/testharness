@@ -1,0 +1,1 @@
+window.harness = require 'harness/app'

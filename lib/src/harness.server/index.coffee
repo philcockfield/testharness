@@ -9,7 +9,7 @@ module.exports =
   paths:  paths
   core:   core
   util:   require './util'
-  client: require paths.client
+  client: require "#{paths.client}/app"
 
 
   ###

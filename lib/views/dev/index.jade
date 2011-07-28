@@ -1,0 +1,30 @@
+!!!
+html
+  head
+    title= title
+    link(rel='stylesheet', href="#{baseUrl}/stylesheets/harness.css")
+    link(rel='stylesheet', href="#{baseUrl}/stylesheets/dev.css")
+
+    script(type='text/javascript', src='/core/libs.js')
+    script(type='text/javascript', src='/core/core.js')
+    script(type='text/javascript', src='#{baseUrl}/javascripts/harness.js')
+
+  body
+    img(src="#{baseUrl}/images/dev/dev_logo.png")  
+    :markdown
+      [Harness](/) | [GitHub](https://github.com/philcockfield/testharness) | [Hosted](http://testharness.herokuapp.com)
+      
+      ### Scripts
+      - [core/libs.js](/core/libs.js)
+      - [core/core.js](/core/core.js)
+      - [harness.js](#{baseUrl}/javascripts/harness.js)
+      
+      ### Specs
+      - [TestHarness](#{baseUrl}/specs)
+      - [Open.Core](#{baseUrl}/core/specs)
+      - On Server: `$ cake specs`
+      
+    
+    :coffeescript
+      app = require 'harness/app'
+      console.log 'app', app
