@@ -1,3 +1,5 @@
+core = require 'open.core'
+
 module.exports =
   build: require './build'
 
@@ -10,5 +12,6 @@ module.exports =
   render: (response, template, options = {}) ->
           harness = require 'harness.server'
           extension = options.extension ?= 'jade'
+          options.html ?= core.util.html # HTML utility helpers.
           options.baseUrl ?= harness.baseUrl
           response.render "#{harness.paths.views}/#{template}.#{extension}", options

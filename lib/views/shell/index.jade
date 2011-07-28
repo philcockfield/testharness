@@ -3,10 +3,12 @@ html
   head
     title= title
     link(rel='stylesheet', href="#{baseUrl}/stylesheets/harness.css")
-
-    script(type='text/javascript', src='/core/libs.js')
-    script(type='text/javascript', src='/core/core.js')
-    script(type='text/javascript', src='#{baseUrl}/javascripts/harness.js')
+    
+    
+    != html.script('/core/libs.js')
+    != html.script('/core/core.js')
+    != html.script(baseUrl + '/javascripts/harness.js')
+  
 
   body
     .harness.shell
@@ -21,38 +23,5 @@ html
         != partial('footer')
 
     :coffeescript
-      writeLibs = ->
-          console.log 'Libs:'
-          console.log '  $', $
-          console.log '  _', _
-          console.log '  _', _.each([1,2,3], (i) -> console.log 'i: ', i )
-          console.log '  _.string', _('foobar').endsWith 'bar'
-          console.log 'Backbone', Backbone
-          console.log '------'
-
-      core = require 'core'
-      console.log 'core', core
-
-      class Tmpl extends core.mvc.Template
-        root: """
-          <div>Foo: <%= title %></div>
-        """
-
-      class SampleView extends core.mvc.View
-        constructor: ->
-            super
-            @tmpl = new Tmpl()
-            @render()
-        render: ->
-            @html @tmpl.root( title: 'Hello' )
-
-
-      view = new SampleView
-      console.log 'view', view
-
-      $('.left .region.body').append view.el
-      view.visible false
-      view.visible true
-
-
-
+      harness = require('harness/app')
+      harness.init()
