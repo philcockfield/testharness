@@ -13,8 +13,11 @@ module.exports =
   ###
   Starts the server (only use when not running your own server).
   @param options:
-          - baseUrl: The base URL path to put the TestHarness within (default: /testharness).
-          - port: The port to listen on (default: 8000).
+          - baseUrl:  The base URL path to put the TestHarness within (default: /testharness).
+          - json:     The file location where the 'harness.json' is located
+                      relative to the root of the application.
+                      Default: /harness.json
+          - port:     The port to listen on (default: 8000).
   @returns the Express app.
   ###
   start: (options = {}) ->
@@ -37,7 +40,11 @@ module.exports =
   ###
   Configures the TestHarness
   @param options:
-          - baseUrl: The base URL path to put the TestHarness within (default: /testharness).
+          - baseUrl: The base URL path to put the TestHarness within 
+                     Default: /testharness
+          - json:    The file location where the 'harness.json' is located
+                     relative to the root of the application.
+                     Default: /harness.json
   ###
   configure: (app, options = {}) -> configure(@, app, options)
 

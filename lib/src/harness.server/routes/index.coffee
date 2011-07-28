@@ -1,3 +1,4 @@
+fs      = require 'fs'
 express = require 'express'
 core    = require 'open.core'
 
@@ -12,6 +13,7 @@ module.exports =
         app       = harness.app
         render    = harness.util.render
         baseUrl   = harness.baseUrl
+        paths     = harness.paths
 
         # Home.
         homeUrl = baseUrl
@@ -27,3 +29,9 @@ module.exports =
                           title: 'TestHarness (Dev)'
                           layout: false
             
+        
+        # Harness definition (JSON).
+        app.get "#{baseUrl}/harness.json", (req, res) -> 
+            core.util.send.jsonFile res, paths.harnessJson
+
+

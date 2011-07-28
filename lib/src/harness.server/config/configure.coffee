@@ -10,19 +10,32 @@ Configures the TestHarness
 @param harness: The root TestHarness module.
 @param app:     The express app.
 @param options:
-        - baseUrl: The base URL path to put the TestHarness within (default: /testharness).
+        - baseUrl: The base URL path to put the TestHarness within 
+                   Default: /testharness
+        - json:    The file location where the 'harness.json' is located
+                   relative to the root of the application.
+                   Default: /harness.json
 ###
 module.exports = (harness, app, options = {}) ->
 
     # Setup initial conditions.
     harness.app = app
+    
+    # Store the location of the Harness JSON definition.
+    do -> 
+        path = options.json ?= 'harness.json'
+        path = "#{process.env.PWD}/#{_.ltrim(path, '/')}"
+        paths.harnessJson = path
 
     # Format and store the base url.
-    baseUrl = options.baseUrl ?= '/testharness'
-    baseUrl = _.trim(baseUrl)
-    runningLocally = baseUrl is '/'
-    baseUrl = '' if runningLocally
-    harness.baseUrl = baseUrl
+    runningLocally = false
+    baseUrl = null
+    do -> 
+        baseUrl = options.baseUrl ?= '/testharness'
+        baseUrl = _.trim(baseUrl)
+        runningLocally = baseUrl is '/'
+        baseUrl = '' if runningLocally
+        harness.baseUrl = baseUrl
 
     # Put middleware within the given URL namespace.
     use = (middleware) ->
