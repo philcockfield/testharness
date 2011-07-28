@@ -1,3 +1,5 @@
+RootView = require './views/root'
+
 module.exports = 
   ###
   Initializes the module.
@@ -6,9 +8,12 @@ module.exports =
   ###
   init: (options = {}) -> 
     
-    elContainer = options.within
-    elContainer = $(elContainer) if _.isString(elContainer)
+    # Insert the root view.
+    el = options.within
+    el = $(el) if _.isString(el)
+    rootView = new RootView()
+    el.append rootView.el
     
-    console.log '_.isString(elContainer)', _.isString(elContainer)
-    console.log 'elContainer', elContainer
+    
+    
     

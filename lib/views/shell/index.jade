@@ -2,13 +2,11 @@
 html
   head
     title= title
-    link(rel='stylesheet', href="#{baseUrl}/stylesheets/harness.css")
-    
+    != html.css(baseUrl + '/stylesheets/harness.css')
     
     != html.script('/core/libs.js')
     != html.script('/core/core.js')
     != html.script(baseUrl + '/javascripts/harness.js')
-  
 
   body
     .harness.shell

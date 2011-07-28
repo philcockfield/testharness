@@ -3,13 +3,11 @@ paths     = require './config/paths'
 configure = require './config/configure'
 core      = require 'open.core'
 
-
 module.exports =
   title:  'TestHarness (Server)'
   paths:  paths
   core:   core
   util:   require './util'
-  client: require "#{paths.client}/app"
 
 
   ###
