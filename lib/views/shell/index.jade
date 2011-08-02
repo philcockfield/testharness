@@ -9,17 +9,6 @@ html
     != html.script(baseUrl + '/javascripts/harness.js')
 
   body
-    .harness.shell
-      .left
-        != partial('header')
-        .region.body
-        != partial('footer')
-      .main
-        != partial('header')
-        .region.body
-          != partial('main_default')
-        != partial('footer')
-
     :coffeescript
       harness = require('harness/app')
       harness.init()

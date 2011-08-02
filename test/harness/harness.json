@@ -1,3 +1,7 @@
 {
-  foo:'testharness'
+  "rootUrl": "/specs",
+  "specs": [
+    "foo_spec.js",
+    "bar_spec.js"
+  ]
 }
