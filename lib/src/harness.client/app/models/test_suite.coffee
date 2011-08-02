@@ -1,10 +1,11 @@
 core = require 'core'
 
-module.exports = class Suite extends core.mvc.Model
+module.exports = class TestSuite extends core.mvc.Model
   constructor: (args) -> 
       super
       @addProps
-        specs: []
+          rootPath: null
+          specs:    []
 
   url: '/harness.json'
   

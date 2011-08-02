@@ -1,5 +1,5 @@
 shell      = require '../regions/shell'
-SuiteModel = require './models/suite'
+TestSuite  = require './models/test_suite'
 # sidebar = require '../regions/sidebar'
 
 ###
@@ -13,15 +13,15 @@ module.exports =
     shell.init
           within: 'body'
     
-    console.log 'SuiteModel', SuiteModel
-    suite = new SuiteModel()
-    
     # TEMP 
+    suite = new TestSuite()
+    console.log 'Loading test suite...'
     suite.fetch
         error:   (e) -> console.log 'Error: e', e, e.model
         success: (e) -> 
             console.log 'Success: e', e, e.model
             console.log 'specs', suite.specs()
+            console.log 'suite.rootPath', suite.rootPath()
         
     
     
