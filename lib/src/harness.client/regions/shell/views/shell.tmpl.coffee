@@ -1,4 +1,4 @@
-core = require 'core.client/core'
+core = require 'open.client/core'
 
 ###
 he root test harness shell

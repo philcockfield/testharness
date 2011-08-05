@@ -2,7 +2,7 @@ express = require 'express'
 css     = require './css'
 paths   = require './paths'
 routes  = require '../routes'
-core    = require 'core.server'
+core    = require 'open.server'
 
 
 ###

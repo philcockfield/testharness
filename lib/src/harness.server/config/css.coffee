@@ -5,7 +5,7 @@ paths   = require './paths'
 # Setup CSS (with references to Core).
 module.exports =
   configure: (use) ->
-      core = require 'core.server'
+      core = require 'open.server'
       compile = (str, path) ->
             stylus(str)
                 .include("#{core.paths.public}/stylesheets")

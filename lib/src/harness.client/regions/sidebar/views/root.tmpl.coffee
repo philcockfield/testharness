@@ -1,4 +1,4 @@
-core = require 'core.client/core'
+core = require 'open.client/core'
 
 ###
 The root index control displayed in the left sidebar.
