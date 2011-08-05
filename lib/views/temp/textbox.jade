@@ -9,4 +9,11 @@ html
 
   body
     :coffeescript
-      console.log 'TEXTBOX'
+      $ -> 
+        controls = require 'open.client/controls'
+        textbox = new controls.Textbox()
+      
+        console.log 'textbox', textbox, textbox.el
+        $('body').append textbox.el
+      
+      
