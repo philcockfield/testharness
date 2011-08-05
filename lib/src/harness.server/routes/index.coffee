@@ -34,4 +34,13 @@ module.exports =
         app.get "#{baseUrl}/harness.json", (req, res) -> 
             core.util.send.jsonFile res, paths.harnessJson
 
+        # Temp host (until the harness is built!)
+        app.get "/temp/:control", (req, res) -> 
+            control = req.params.control
+            render res, "temp/#{control}",
+                                title: control
+                                layout: false
+            
+            
+
 
