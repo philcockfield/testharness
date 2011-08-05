@@ -24,6 +24,9 @@ borderColor = darken(white, 60%)
 // ------------------------------------------------------
 //                        Shell
 // ------------------------------------------------------
+body
+  overflow hidden
+
 div.harness.shell
   absPosition()
   background: white
@@ -54,7 +57,8 @@ div.harness.shell
     absPosition(leftWidth + 1, 0, 0, 0)
     div.region
       absPosition(0, headerHeight + 1, 0, footerHeight + 1)
-
+      overflow: hidden
+    
 
 
 
