@@ -1,4 +1,4 @@
-core      = require 'core'
+core      = require 'core.client/core'
 ShellTmpl = require './shell.tmpl'
 sidebar   = require '../../sidebar'
 

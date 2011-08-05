@@ -1,4 +1,4 @@
-core = require 'core'
+core = require 'core.client/core'
 
 module.exports = class TestSuite extends core.mvc.Model
   constructor: (args) -> 
