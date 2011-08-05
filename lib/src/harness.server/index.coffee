@@ -8,7 +8,7 @@ module.exports =
   paths:  paths
   core:   core
   util:   require './util'
-
+  client: require(paths.client)
 
   ###
   Starts the server (only use when not running your own server).

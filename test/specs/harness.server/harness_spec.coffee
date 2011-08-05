@@ -5,7 +5,7 @@ describe 'server/harness', ->
     expect(test.server).toEqual harness
 
   it 'exposes the client libraries', ->
-    client = require harness.paths.client
+    client = require(harness.paths.client)
     expect(client).toBeDefined()
     expect(harness.client).toEqual client
 
