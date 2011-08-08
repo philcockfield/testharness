@@ -25,7 +25,6 @@ module.exports =
     shell.init
           within: 'body'
     
-    
     # Load state from server.
     @definition.fetch()
         

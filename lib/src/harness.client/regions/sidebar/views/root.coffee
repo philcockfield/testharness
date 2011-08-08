@@ -6,7 +6,7 @@ The root index control displayed in the left sidebar.
 ###
 module.exports = class RootView extends core.mvc.View
   constructor: (@app) -> 
-      super className: 'root_index'
+      super className: 'th_root_index'
       @tmpl = new RootTmpl()
       
       # Wire up events.
@@ -16,11 +16,7 @@ module.exports = class RootView extends core.mvc.View
     
   # Renders the control.
   render: -> 
-      
       specs = @app.definition.specs()
-      
-      console.log 'specs', specs
-      
       tmpl = @tmpl
       @html tmpl.root(specs:specs)
     

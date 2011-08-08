@@ -6,15 +6,15 @@ he root test harness shell
 module.exports = class ShellTmpl extends core.mvc.Template
   root: 
     """
-    <div class="left">
+    <div class="th_left">
       <%= tmpl.header() %>
-      <div class="region body"></div>
+      <div class="th_region th_body"></div>
       <%= tmpl.footer() %>
     </div>
 
-    <div class="main">
+    <div class="th_main">
       <%= tmpl.header() %>
-      <div class="region body">
+      <div class="th_region th_body">
         <%= tmpl.mainDefault() %>
       </div>
       <%= tmpl.footer() %>
@@ -23,25 +23,25 @@ module.exports = class ShellTmpl extends core.mvc.Template
   
   header: 
     """
-    <div class="header bar">
+    <div class="th_header th_bar">
       <div class="bevel highlight"></div>
-      <div class="region abs_fill"></div>
+      <div class="th_region abs_fill"></div>
     </div>
     """
 
   footer: 
     """
-    <div class="footer bar">
+    <div class="th_footer th_bar">
       <div class="bevel highlight"></div>
-      <div class="region abs_fill"></div>
+      <div class="th_region abs_fill"></div>
     </div>
     """
 
   mainDefault:
     """
-    <div class="welcome abs_fill">
-      <div class="grid abs_fill"></div>
-      <div class="title abs_fill"></div>
+    <div class="th_welcome abs_fill">
+      <div class="th_grid abs_fill"></div>
+      <div class="th_title abs_fill"></div>
     </div>  
     """
   

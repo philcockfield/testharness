@@ -7,12 +7,12 @@ The root test harness shell.
 ###
 module.exports = class ShellView extends core.mvc.View
   constructor: () -> 
-      super className: 'harness shell'
+      super className: 'th_harness th_shell'
       @render()
 
       # Sidebar.
       sidebar.init
-              within: @$('div.left > div.region.body')
+              within: @$('div.th_left > div.th_region.th_body')
       
     
   # Renders the control.
