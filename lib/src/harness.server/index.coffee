@@ -40,15 +40,16 @@ module.exports =
   ###
   Configures the TestHarness
   @param options:
-          - baseUrl: The base URL path to put the TestHarness within 
-                     Default: /testharness
-          - json:    The file location where the 'harness.json' is located
-                     relative to the root of the application.
-                     Default: /harness.json
+            - baseUrl:    The base URL path to put the TestHarness within 
+                          (Default: /testharness)
+            - specsDir:   The directory where the test/specs are located.
+                          This path is relative to the root of the app.  The fully qualified path is
+                          inserted by the TestHarness.
+                          (Default: /test/harness)
+            - specsUrl:   The base URL from which spec files can be loaded from the client.
+                          (Default: /specs)
   ###
-  configure: (app, options = {}) -> configure(@, app, options)
-
-
+  configure: (app, options = {}) -> configure(app, options)
 
 
   ###

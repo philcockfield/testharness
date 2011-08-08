@@ -4,22 +4,25 @@ paths   = require './paths'
 routes  = require '../routes'
 core    = require 'open.server'
 
-
 ###
 Configures the TestHarness
-@param harness: The root TestHarness module.
 @param app:     The express app.
 @param options:
-        - baseUrl: The base URL path to put the TestHarness within 
-                   Default: /testharness
-        - json:    The file location where the 'harness.json' is located
-                   relative to the root of the application.
-                   Default: /harness.json
+            - baseUrl:    The base URL path to put the TestHarness within 
+                          (Default: /testharness)
+            - specsDir:   The directory where the test/specs are located.
+                          This path is relative to the root of the app.  The fully qualified path is
+                          inserted by the TestHarness.
+                          (Default: /test/harness)
+            - specsUrl:   The base URL from which spec files can be loaded from the client.
+                          (Default: /specs)
 ###
-module.exports = (harness, app, options = {}) ->
+module.exports = (app, options = {}) ->
 
     # Setup initial conditions.
-    harness.app = app
+    harness         = require 'harness.server'
+    harness.app     = app
+    harness.options = options
     
     # Store the location of the Harness JSON definition.
     do -> 
@@ -74,7 +77,7 @@ module.exports = (harness, app, options = {}) ->
                       ]
 
     # Setup routes.
-    routes.init harness
+    routes()
 
 
 

@@ -1,5 +1,5 @@
 shell      = require '../regions/shell'
-TestSuite  = require './models/test_suite'
+Definition  = require './models/definition'
 # sidebar = require '../regions/sidebar'
 
 ###
@@ -8,20 +8,29 @@ The root application module.
 module.exports =
   title: 'TestHarness (Client)'
   
-  init: -> 
+  ###
+  Initialize the module.
+  @param options
+          - specsUrl:   The base URL from which spec files can be loaded from the client.
+                        (Default: /specs)
+  ###
+  init: (options = {}) -> 
+    
+    # Setup initial conditions.
+    options.specsUrl ?= '/specs'
+    
     # Root shell.
     shell.init
           within: 'body'
     
     # TEMP 
-    suite = new TestSuite()
-    console.log 'Loading test suite...'
-    suite.fetch
+    def = new Definition(options)
+    console.log 'Loading Definition...'
+    def.fetch
         error:   (e) -> console.log 'Error: e', e, e.model
         success: (e) -> 
-            console.log 'Success: e', e, e.model
-            console.log 'specs', suite.specs()
-            console.log 'suite.rootPath', suite.rootPath()
+            console.log 'Success: e', e, def
+            console.log 'specs', def.specs()
         
     
     
