@@ -9,9 +9,8 @@ formatTitle = (url, options) ->
     title = _.titleize(title)
     title
     
-    
 
-module.exports = class TestSuite extends core.mvc.Model
+module.exports = class HarnessDefinition extends core.mvc.Model
   url: '/harness.json'
   defaults: 
       specs: []
@@ -26,7 +25,6 @@ module.exports = class TestSuite extends core.mvc.Model
       super
 
   parse: (response) -> 
-    
     
     if response.specs?
       response.specs = _.map response.specs, (item) => 

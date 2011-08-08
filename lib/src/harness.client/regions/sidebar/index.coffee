@@ -1,4 +1,4 @@
-RootView = require './views/root'
+RootView  = require './views/root'
 
 module.exports = 
   ###
@@ -7,12 +7,15 @@ module.exports =
           - within: Element, or selector of element, to start the module within.
   ###
   init: (options = {}) -> 
+    app = require 'harness/app'
     
     # Insert the root view.
     el = options.within
     el = $(el) if _.isString(el)
-    rootView = new RootView()
+    rootView = new RootView(app)
     el.append rootView.el
+
+    
     
     
     
