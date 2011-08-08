@@ -9,6 +9,7 @@ module.exports =
       compile = (str, path) ->
             stylus(str)
                 .include("#{core.paths.public}/stylesheets")
+                .include("#{paths.public}/stylesheets")
                 .use(nib())
       use stylus.middleware
               src:     paths.public

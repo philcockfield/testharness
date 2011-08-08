@@ -1,5 +1,8 @@
-@import 'core/common'
 @import 'nib'
+@import 'core/common'
+@import './harness/main.welcome'
+@import './harness/sidebar'
+
 
 // ------------------------------------------------------
 //                   Constants
@@ -60,21 +63,3 @@ div.th_harness.th_shell
       overflow: hidden
     
 
-
-
-// ------------------------------------------------------
-//                     Welcome
-// ------------------------------------------------------
-div.th_main div.th_welcome
-    default = #007bd7
-    top     = #0a93ec
-    bottom  = #003683
-    background: gradientY(default, top, bottom)
-
-    div.th_grid
-      background-image: url(../images/welcome/grid_lines.png)
-
-    div.th_title
-      background-image: url(../images/welcome/title.png)
-      background-repeat: no-repeat
-      background-position: center
