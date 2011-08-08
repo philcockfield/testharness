@@ -6,7 +6,13 @@ The root index control displayed in the left sidebar.
 module.exports = class RootTmpl extends core.mvc.Template
   root: 
     """
-      <ul class="th_specs">
+      <div class="th_button_list">
+      </div>
+    """
+
+
+  temp:
+    """
         <% _.each(specs, function(item) { %> 
           <li class="th_spec">
             <b>
@@ -17,5 +23,5 @@ module.exports = class RootTmpl extends core.mvc.Template
             <br/>
             </li>
         <% }); %>
-      </ul>
     """
+    

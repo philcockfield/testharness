@@ -1,5 +1,6 @@
 core      = require 'open.client/core'
 RootTmpl  = require './root.tmpl'
+Button    = require './list_button'
 
 ###
 The root index control displayed in the left sidebar.
@@ -16,7 +17,18 @@ module.exports = class RootView extends core.mvc.View
     
   # Renders the control.
   render: -> 
-      specs = @app.definition.specs()
+      # Base HTML.
       tmpl = @tmpl
-      @html tmpl.root(specs:specs)
+      @html tmpl.root()
+      
+      # Add buttons.
+      div = @$('div.th_button_list')
+      for spec in @app.definition.specs()
+          button = new Button(spec:spec)
+          div.append button.el
+          
+      
+      
+      
+      
     
