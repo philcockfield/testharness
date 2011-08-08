@@ -9,8 +9,13 @@ module.exports = class RootTmpl extends core.mvc.Template
       <ul class="th_specs">
         <% _.each(specs, function(item) { %> 
           <li class="th_spec">
-            <%= item.title %>
-          </li>
+            <b>
+              <%= item.title %>
+            </b>
+            <br/>
+            <%= item.folder %>
+            <br/>
+            </li>
         <% }); %>
       </ul>
     """

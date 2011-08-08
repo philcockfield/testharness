@@ -2,11 +2,12 @@ core = require 'open.client/core'
 
 formatTitle = (url, options) -> 
     title = _.strRightBack(url, '/')
-    title = _.strLeftBack(title, '.js')
+    title = _.strLeftBack(title, '_spec.js')
     title = title.replace('__', ': ')
     title = title.replace('_', ' ')
     title = _.clean(title)
     title = _.titleize(title)
+    title = _.trim(title)
     title
     
 
