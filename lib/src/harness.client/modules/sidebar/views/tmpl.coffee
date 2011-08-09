@@ -13,7 +13,7 @@ module.exports = class RootTmpl extends core.mvc.Template
   listButton: 
     """
       <div class="th_label">
-        <%= tab.label() + ' | ' + tab.selected() %>
+        <%= tab.label() %>
       </div>
     """
     

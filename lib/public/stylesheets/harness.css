@@ -132,10 +132,14 @@ div.core_bevel_highlight {
   background: #ebebeb;
 }
 .th_left .th_list_button.th_selected {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f00), color-stop(0.33333333333333326, #008000), color-stop(1, #00f));
-  background: -webkit-linear-gradient(top, #f00 0%, #008000 33.33333333333333%, #00f 100%);
-  background: -moz-linear-gradient(top, #f00 0%, #008000 33.33333333333333%, #00f 100%);
-  background: linear-gradient(top, #f00 0%, #008000 33.33333333333333%, #00f 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0096ed), color-stop(1, #003c85));
+  background: -webkit-linear-gradient(top, #0096ed 0%, #003c85 100%);
+  background: -moz-linear-gradient(top, #0096ed 0%, #003c85 100%);
+  background:   background: linear-gradient(top, #0096ed 0%, #003c85 100%);;
+}
+.th_left .th_list_button.th_selected .th_label {
+  text-shadow: none;
+  color: #fff;
 }
 body {
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
