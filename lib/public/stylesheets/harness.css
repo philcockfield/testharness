@@ -6,7 +6,7 @@ div.core_bevel_highlight {
   background: #fff;
 }
 .core_text_emboss {
-  text-shadow: 0px 1px 0px $white;
+  text-shadow: 0px 1px 0px #fff;
 }
 .core_abs_fill {
   position: absolute;
@@ -37,7 +37,7 @@ div.core_bevel_highlight {
   background: #fff;
 }
 .core_text_emboss {
-  text-shadow: 0px 1px 0px $white;
+  text-shadow: 0px 1px 0px #fff;
 }
 .core_abs_fill {
   position: absolute;
@@ -46,20 +46,36 @@ div.core_bevel_highlight {
   right: 0px;
   bottom: 0px;
 }
+.th_left {
+  background: #f2f2f2;
+}
 .th_left .th_list_button {
   padding: 15px;
-  border-bottom: solid 1px;
+  border-bottom: solid 1px #ccc;
   cursor: default;
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
+}
+.th_left .th_list_button .th_label {
+  text-shadow: 0px 1px 0px #fff;
   font-size: 12pt;
+  color: #595959;
+}
+.th_left .th_list_button.th_over {
+  background: #ebebeb;
+}
+.th_left .th_list_button.th_selected {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f00), color-stop(0.33333333333333326, #008000), color-stop(1, #00f));
+  background: -webkit-linear-gradient(top, #f00 0%, #008000 33.33333333333333%, #00f 100%);
+  background: -moz-linear-gradient(top, #f00 0%, #008000 33.33333333333333%, #00f 100%);
+  background: linear-gradient(top, #f00 0%, #008000 33.33333333333333%, #00f 100%);
 }
 .th_bar {
-  background: #e0e1e6;
-  background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f7), to(#a6acba));
-  background: -moz-linear-gradient(top, #f5f5f7, #a6acba);
-  background:   background: -moz-linear-gradient(top, #f5f5f7, #a6acba);;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f3f3f5), color-stop(1, #a6adbb));
+  background: -webkit-linear-gradient(top, #f3f3f5 0%, #a6adbb 100%);
+  background: -moz-linear-gradient(top, #f3f3f5 0%, #a6adbb 100%);
+  background: linear-gradient(top, #f3f3f5 0%, #a6adbb 100%);
 }
 body {
   overflow: hidden;
@@ -98,7 +114,6 @@ div.th_harness.th_shell div.th_left {
   bottom: 0px;
   width: 320px;
   border-right: solid 1px #666;
-  background: #f5f5f5;
 }
 div.th_harness.th_shell div.th_left div.th_region {
   position: absolute;

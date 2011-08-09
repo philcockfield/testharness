@@ -7,12 +7,23 @@
 //                      List Button
 // ------------------------------------------------------
 .th_left 
+  background darken(white, 5%)
+  
   .th_list_button
     padding 15px
-    border-bottom solid 1px
+    border-bottom solid 1px darken(white, 20%)
     cursor: default
     user-select none
-    font-size 12pt
+    
+    .th_label
+      text_emboss()
+      font-size 12pt
+      color darken(white, 65%)
   
+  .th_list_button.th_over
+    background darken(white, 8%)
+
+  .th_list_button.th_selected
+    background: linear-gradient(top, red, green, blue)
   
   

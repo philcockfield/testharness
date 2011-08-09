@@ -8,15 +8,22 @@ module.exports = class ListButton extends controls.Button
       
       # TEMP 
       @onClick () => console.log 'CLICK | => ', @spec.title
-      
-  onStateChanged: -> @render()
   
+  updateClasses: => 
+      el = @el
+      el.toggleClass 'th_over', @over()
+      el.toggleClass 'th_selected', @selected()
+  
+  onStateChanged: -> 
+      # @updateClasses()
+      
+      @render() # TEMP 
+      
+      
   render: -> 
+      
       tmpl = new Tmpl()
-      html = tmpl.listButton(spec: @spec)
-      
-
-      
-      
+      html = tmpl.listButton(tab:@)
       @html html
+      @updateClasses()
       @

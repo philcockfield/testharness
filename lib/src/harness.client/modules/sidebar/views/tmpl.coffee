@@ -12,8 +12,8 @@ module.exports = class RootTmpl extends core.mvc.Template
 
   listButton: 
     """
-      <div class="text_emboss">
-        <%= spec.title %>
+      <div class="th_label">
+        <%= tab.label() + ' | ' + tab.selected() %>
       </div>
     """
     

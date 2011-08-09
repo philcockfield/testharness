@@ -30,14 +30,10 @@ module.exports = class RootView extends core.mvc.View
       
       for spec in @app.definition.specs()
           button = new Button(spec)
-          # @buttonSet.add button
+          @buttonSet.add button
           div.append button.el
           buttons.push button
       
-      # TEMP 
-      buttons[0].canToggle false
-      @buttonSet.add buttons[1]
-      @buttonSet.add buttons[2]
       
           
       
