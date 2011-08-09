@@ -13,6 +13,11 @@ specsDir = ->
     dir = _.lstrip(dir, '/')
     dir = "#{process.env.PWD}/#{dir}"
 
+supportedFile = (path) -> 
+    return true if _.endsWith(path, '_spec.js')
+    return true if _.endsWith(path, '_spec.coffee')
+    return false
+
 specPaths = (callback) -> 
     fs = core.util.fs
     dir = specsDir()
@@ -27,7 +32,7 @@ specPaths = (callback) ->
             
           # 2. Filter for '_spec' files only and format into URL.
           paths = _.map paths, (path) -> 
-                      return if not _.endsWith(path, '_spec.js')
+                      return if not supportedFile(path)
                       path = _.strRight(path, dir + '/')
                       "#{url}/#{path}"
           paths = _.compact(paths)

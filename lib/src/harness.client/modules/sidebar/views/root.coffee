@@ -18,7 +18,8 @@ module.exports = class RootView extends core.mvc.View
       
       # TEMP 
       @buttonSet.bind 'selectionChanged', (e) -> 
-            console.log 'SELECTION CHANGED', e.button, e.button.label()
+            spec = e.button.spec
+            console.log 'SELECTION CHANGED', e.button, e.button.label(), spec, spec.url
             url = e.button.spec.url
             # $.get url, (data) -> 
             #   console.log 'data', data
