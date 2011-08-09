@@ -21,8 +21,12 @@ module.exports = class RootView extends core.mvc.View
             spec = e.button.spec
             console.log 'SELECTION CHANGED', e.button, e.button.label(), spec, spec.url
             url = e.button.spec.url
-            # $.get url, (data) -> 
-            #   console.log 'data', data
+            
+            console.log 'Loading spec file from server....'
+            $.get url, (data) -> 
+              console.log 'Loaded:'
+              console.log data
+              console.log ''
             
       
       

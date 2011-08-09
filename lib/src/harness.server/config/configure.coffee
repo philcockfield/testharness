@@ -28,7 +28,6 @@ module.exports = (app, options = {}) ->
     do -> 
       options.specsDir ?= 'test/harness'
       options.specsUrl ?= '/specs'
-      
     
     # Store the location of the Harness JSON definition.
     do -> 
