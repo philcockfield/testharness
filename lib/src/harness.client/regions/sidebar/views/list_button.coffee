@@ -8,7 +8,7 @@ module.exports = class ListButton extends controls.Button
       # TEMP 
       @onClick () => console.log 'CLICK | => ', @spec.title
       
-  stateChanged: -> @render()
+  onStateChanged: -> @render()
   
   render: -> 
       html = "#{@spec.title} | over:#{@over()} | down:#{@down()} | selected:#{@selected()}" # TEMP 

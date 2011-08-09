@@ -29,7 +29,7 @@ module.exports =
       @util.build.client =>
 
           # Start listening on requested port.
-          app.listen options.port ?= 8000, =>
+          app.listen options.port ?= 3000, =>
               console.log ''
               console.log "[#{@title}] server listening on port #{app.address().port} in #{app.settings.env} mode"
               console.log '---'
