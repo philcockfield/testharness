@@ -1,0 +1,48 @@
+@import './_common'
+
+// ------------------------------------------------------
+//                   Constants
+// ------------------------------------------------------
+HEADER_HEIGHT = 43
+FOOTER_HEIGHT = 43
+LEFT_WIDTH = 320
+
+// ------------------------------------------------------
+//                   Common Styles
+// ------------------------------------------------------
+.th_bar
+  background: silverGradient()
+
+
+// ------------------------------------------------------
+//                        Shell
+// ------------------------------------------------------
+div.th_harness.th_shell
+  abs-pos()
+  background: white
+
+  div.th_region
+    overflow: hidden
+
+  div.th_header
+    abs-pos(0, 0, 0, null)
+    height: unit(HEADER_HEIGHT, px)
+    border-bottom: solid 1px BORDER_COLOR
+
+  div.th_footer
+    abs-pos(0, null, 0, 0)
+    height: unit(FOOTER_HEIGHT, px)
+    border-top: solid 1px BORDER_COLOR
+
+  div.th_left
+    abs-pos(0, 0, null, 0)
+    width: unit(LEFT_WIDTH, px)
+    border-right: solid 1px BORDER_COLOR
+    div.th_region
+      abs-pos(0, HEADER_HEIGHT + 1, 0, FOOTER_HEIGHT + 1)
+
+  div.th_main
+    abs-pos(LEFT_WIDTH + 1, 0, 0, 0)
+    div.th_region
+      abs-pos(0, HEADER_HEIGHT + 1, 0, FOOTER_HEIGHT + 1)
+      overflow: hidden

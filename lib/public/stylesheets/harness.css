@@ -15,20 +15,6 @@ div.core_bevel_highlight {
   right: 0px;
   bottom: 0px;
 }
-div.th_main div.th_welcome {
-  background: #007bd7;
-  background: -webkit-gradient(linear, left top, left bottom, from(#0a93ec), to(#003683));
-  background: -moz-linear-gradient(top, #0a93ec, #003683);
-  background:   background: -moz-linear-gradient(top, #0a93ec, #003683);;
-}
-div.th_main div.th_welcome div.th_grid {
-  background-image: url("../images/welcome/grid_lines.png");
-}
-div.th_main div.th_welcome div.th_title {
-  background-image: url("../images/welcome/title.png");
-  background-repeat: no-repeat;
-  background-position: center;
-}
 body {
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -46,39 +32,11 @@ div.core_bevel_highlight {
   right: 0px;
   bottom: 0px;
 }
-.th_left {
-  background: #f2f2f2;
-}
-.th_left .th_list_button {
-  padding: 15px;
-  border-bottom: solid 1px #ccc;
-  cursor: default;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
-.th_left .th_list_button .th_label {
-  text-shadow: 0px 1px 0px #fff;
-  font-size: 12pt;
-  color: #595959;
-}
-.th_left .th_list_button.th_over {
-  background: #ebebeb;
-}
-.th_left .th_list_button.th_selected {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f00), color-stop(0.33333333333333326, #008000), color-stop(1, #00f));
-  background: -webkit-linear-gradient(top, #f00 0%, #008000 33.33333333333333%, #00f 100%);
-  background: -moz-linear-gradient(top, #f00 0%, #008000 33.33333333333333%, #00f 100%);
-  background: linear-gradient(top, #f00 0%, #008000 33.33333333333333%, #00f 100%);
-}
 .th_bar {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f3f3f5), color-stop(1, #a6adbb));
   background: -webkit-linear-gradient(top, #f3f3f5 0%, #a6adbb 100%);
   background: -moz-linear-gradient(top, #f3f3f5 0%, #a6adbb 100%);
-  background: linear-gradient(top, #f3f3f5 0%, #a6adbb 100%);
-}
-body {
-  overflow: hidden;
+  background:   background: linear-gradient(top, #f3f3f5 0%, #a6adbb 100%);;
 }
 div.th_harness.th_shell {
   position: absolute;
@@ -135,5 +93,81 @@ div.th_harness.th_shell div.th_main div.th_region {
   top: 44px;
   right: 0px;
   bottom: 44px;
+  overflow: hidden;
+}
+body {
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+div.core_bevel_highlight {
+  height: 1px;
+  background: #fff;
+}
+.core_text_emboss {
+  text-shadow: 0px 1px 0px #fff;
+}
+.core_abs_fill {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+.th_left {
+  background: #f2f2f2;
+}
+.th_left .th_list_button {
+  padding: 15px;
+  border-bottom: solid 1px #ccc;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.th_left .th_list_button .th_label {
+  text-shadow: 0px 1px 0px #fff;
+  font-size: 12pt;
+  color: #595959;
+}
+.th_left .th_list_button.th_over {
+  background: #ebebeb;
+}
+.th_left .th_list_button.th_selected {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f00), color-stop(0.33333333333333326, #008000), color-stop(1, #00f));
+  background: -webkit-linear-gradient(top, #f00 0%, #008000 33.33333333333333%, #00f 100%);
+  background: -moz-linear-gradient(top, #f00 0%, #008000 33.33333333333333%, #00f 100%);
+  background: linear-gradient(top, #f00 0%, #008000 33.33333333333333%, #00f 100%);
+}
+body {
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+div.core_bevel_highlight {
+  height: 1px;
+  background: #fff;
+}
+.core_text_emboss {
+  text-shadow: 0px 1px 0px #fff;
+}
+.core_abs_fill {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+div.th_main div.th_welcome {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0096ed), color-stop(1, #003c85));
+  background: -webkit-linear-gradient(top, #0096ed 0%, #003c85 100%);
+  background: -moz-linear-gradient(top, #0096ed 0%, #003c85 100%);
+  background:   background: linear-gradient(top, #0096ed 0%, #003c85 100%);;
+}
+div.th_main div.th_welcome div.th_grid {
+  background-image: url("../images/welcome/grid_lines.png");
+}
+div.th_main div.th_welcome div.th_title {
+  background-image: url("../images/welcome/title.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+body {
   overflow: hidden;
 }
