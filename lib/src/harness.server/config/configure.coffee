@@ -24,6 +24,12 @@ module.exports = (app, options = {}) ->
     harness.app     = app
     harness.options = options
     
+    # Set default options.
+    do -> 
+      options.specsDir ?= 'test/harness'
+      options.specsUrl ?= '/specs'
+      
+    
     # Store the location of the Harness JSON definition.
     do -> 
         path = options.json ?= 'harness.json'
