@@ -15,6 +15,16 @@ module.exports = class RootView extends core.mvc.View
       @app.definition.fetch.onComplete (e) => 
             @render() if e.success
       
+      
+      # TEMP 
+      @buttonSet.bind 'selectionChanged', (e) -> 
+            console.log 'SELECTION CHANGED', e.button, e.button.label()
+            url = e.button.spec.url
+            # $.get url, (data) -> 
+            #   console.log 'data', data
+            
+      
+      
     
   # Renders the control.
   render: -> 

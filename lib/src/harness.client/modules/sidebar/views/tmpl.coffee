@@ -16,21 +16,3 @@ module.exports = class RootTmpl extends core.mvc.Template
         <%= tab.label() %>
       </div>
     """
-    
-  
-  
-  # TEMP 
-  temp:
-    """
-        <% _.each(specs, function(item) { %> 
-          <li class="th_spec">
-            <b>
-              <%= item.title %>
-            </b>
-            <br/>
-            <%= item.folder %>
-            <br/>
-            </li>
-        <% }); %>
-    """
-    
