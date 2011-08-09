@@ -1,6 +1,15 @@
-harness    = require 'harness.server'
-definition = require 'harness.server/util/harness_definition'
-core       = harness.core
+fs           = require 'fs'
+coffee       = require 'coffee-script'
+harness      = require 'harness.server'
+definition   = require 'harness.server/util/harness_definition'
+core         = harness.core
+send         = core.util.send
+
+
+compileCoffee = (path, callback) -> 
+    fs.readFile path, 'utf8', (err, src) -> 
+        callback coffee.compile(src)
+
 
 module.exports = -> 
   app     = harness.app
@@ -16,7 +25,11 @@ module.exports = ->
   specsUrl = "#{baseUrl}/#{specsUrl}/*"
   app.get specsUrl, (req, res) -> 
       path = "#{definition.specsDir()}/#{req.params}"
-      core.util.send.scriptFile res, path
+      if _.endsWith(path, '.coffee')
+          # Send .coffee file.
+          compileCoffee path, (spec) -> send.script res, spec
+      else
+          # Send .js file.
+          send.scriptFile res, path
       
-      # TODO Pre-compile .coffee files.
       
