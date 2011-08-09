@@ -1,4 +1,5 @@
-controls = require 'open.client/controls'
+controls  = require 'open.client/controls'
+Tmpl      = require 'harness.client/modules/sidebar/views/tmpl'
 
 module.exports = class ListButton extends controls.Button
   constructor: (@spec) -> 
@@ -11,6 +12,11 @@ module.exports = class ListButton extends controls.Button
   onStateChanged: -> @render()
   
   render: -> 
-      html = "#{@spec.title} | over:#{@over()} | down:#{@down()} | selected:#{@selected()}" # TEMP 
+      tmpl = new Tmpl()
+      html = tmpl.listButton(spec: @spec)
+      
+
+      
+      
       @html html
       @

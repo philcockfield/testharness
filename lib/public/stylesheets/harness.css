@@ -1,18 +1,14 @@
 body {
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-div.bevel.highlight {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  right: 0px;
+div.core_bevel_highlight {
   height: 1px;
   background: #fff;
 }
-.text_emboss {
+.core_text_emboss {
   text-shadow: 0px 1px 0px $white;
 }
-.abs_fill {
+.core_abs_fill {
   position: absolute;
   left: 0px;
   top: 0px;
@@ -36,18 +32,14 @@ div.th_main div.th_welcome div.th_title {
 body {
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-div.bevel.highlight {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  right: 0px;
+div.core_bevel_highlight {
   height: 1px;
   background: #fff;
 }
-.text_emboss {
+.core_text_emboss {
   text-shadow: 0px 1px 0px $white;
 }
-.abs_fill {
+.core_abs_fill {
   position: absolute;
   left: 0px;
   top: 0px;
@@ -55,14 +47,13 @@ div.bevel.highlight {
   bottom: 0px;
 }
 .th_left .th_list_button {
-  padding: 10px;
-  background: #ffa500;
+  padding: 15px;
   border-bottom: solid 1px;
   cursor: default;
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
-  font-size: 8pt;
+  font-size: 12pt;
 }
 .th_bar {
   background: #e0e1e6;

@@ -31,35 +31,35 @@ body
   overflow hidden
 
 div.th_harness.th_shell
-  absPosition()
+  abs-pos()
   background: white
 
   div.th_region
     overflow: hidden
 
   div.th_header
-    absPosition(0, 0, 0, null)
+    abs-pos(0, 0, 0, null)
     height: unit(headerHeight, px)
     border-bottom: solid 1px borderColor
 
 
   div.th_footer
-    absPosition(0, null, 0, 0)
+    abs-pos(0, null, 0, 0)
     height: unit(footerHeight, px)
     border-top: solid 1px borderColor
 
   div.th_left
-    absPosition(0, 0, null, 0)
+    abs-pos(0, 0, null, 0)
     width: unit(leftWidth, px)
     border-right: solid 1px borderColor
     background: #f5f5f5
     div.th_region
-      absPosition(0, headerHeight + 1, 0, footerHeight + 1)
+      abs-pos(0, headerHeight + 1, 0, footerHeight + 1)
 
   div.th_main
-    absPosition(leftWidth + 1, 0, 0, 0)
+    abs-pos(leftWidth + 1, 0, 0, 0)
     div.th_region
-      absPosition(0, headerHeight + 1, 0, footerHeight + 1)
+      abs-pos(0, headerHeight + 1, 0, footerHeight + 1)
       overflow: hidden
     
 

@@ -10,7 +10,16 @@ module.exports = class RootTmpl extends core.mvc.Template
       </div>
     """
 
-
+  listButton: 
+    """
+      <div class="text_emboss">
+        <%= spec.title %>
+      </div>
+    """
+    
+  
+  
+  # TEMP 
   temp:
     """
         <% _.each(specs, function(item) { %> 
