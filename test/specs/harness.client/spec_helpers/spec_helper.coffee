@@ -1,1 +1,1 @@
-window.harness = require 'harness/app'
+window.harness = require 'harness.client/app'

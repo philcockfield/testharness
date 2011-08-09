@@ -1,7 +1,7 @@
 core      = require 'open.client/core'
 controls  = require 'open.client/controls'
-RootTmpl  = require './root.tmpl'
-Button    = require './list_button'
+Tmpl      = require 'harness.client/modules/sidebar/views/tmpl'
+Button    = require 'harness.client/modules/sidebar/views/list_button'
 
 ###
 The root index control displayed in the left sidebar.
@@ -9,7 +9,6 @@ The root index control displayed in the left sidebar.
 module.exports = class RootView extends core.mvc.View
   constructor: (@app) -> 
       super className: 'th_root_index'
-      @tmpl       = new RootTmpl()
       @buttonSet  = new controls.ButtonSet()
       
       # Wire up events.
@@ -20,7 +19,7 @@ module.exports = class RootView extends core.mvc.View
   # Renders the control.
   render: -> 
       # Base HTML.
-      tmpl = @tmpl
+      tmpl = new Tmpl()
       @html tmpl.root()
       
       # Add buttons.

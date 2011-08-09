@@ -1,6 +1,6 @@
 core      = require 'open.client/core'
-ShellTmpl = require './shell.tmpl'
-sidebar   = require '../../sidebar'
+ShellTmpl = require 'harness.client/modules/shell/views/shell.tmpl'
+sidebar   = require 'harness.client/modules/sidebar'
 
 ###
 The root test harness shell.

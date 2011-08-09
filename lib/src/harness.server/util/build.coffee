@@ -19,7 +19,7 @@ module.exports =
       folder    = "#{harness.paths.public}/javascripts"
 
       folders = [
-        { source: harness.paths.client, target: '/harness' }
+        { source: harness.paths.client, target: '/harness.client' }
       ]
       compiler  = new core.util.javascript.Compiler(folders, header: harness.copyright( asComment: true ))
       compiler.save

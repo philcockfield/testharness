@@ -1,5 +1,5 @@
-shell      = require '../regions/shell'
-Definition  = require './models/definition'
+shell       = require 'harness.client/modules/shell'
+Definition  = require 'harness.client/app/models/definition'
 
 ###
 The root application module.
