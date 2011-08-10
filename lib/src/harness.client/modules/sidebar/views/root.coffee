@@ -25,7 +25,7 @@ module.exports = class RootView extends core.mvc.View
             console.log 'Loading spec file from server....'
             $.get url, (data) -> 
               console.log 'Loaded:'
-              console.log data
+              console.log "   #{data}"
               console.log ''
             
       
