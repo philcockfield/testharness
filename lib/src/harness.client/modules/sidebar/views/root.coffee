@@ -16,7 +16,7 @@ module.exports = class RootView extends core.mvc.View
             @render() if e.success
       
       
-      # TEMP 
+      # TEMP ########## ########## ########## ########## ##########
       @buttonSet.bind 'selectionChanged', (e) -> 
             spec = e.button.spec
             console.log 'SELECTION CHANGED', e.button, e.button.label(), spec, spec.url

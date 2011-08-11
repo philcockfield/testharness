@@ -6,14 +6,31 @@ html
 
     script(type='text/javascript', src='/core/libs.js')
     script(type='text/javascript', src='/core/core.js')
+    
+    :stylus
+      body
+        padding 50px
+      
+      .core_textbox
+        width 120px
+        margin 10px
 
   body
     :coffeescript
       $ -> 
         controls = require 'open.client/controls'
-        textbox = new controls.Textbox()
-      
-        console.log 'textbox', textbox, textbox.el
-        $('body').append textbox.el
+        
+        add = -> 
+            textbox = new controls.Textbox()
+            $('body').append textbox.el
+            textbox
+        
+        textbox1 = add()
+        textbox2 = add()
+        textbox3 = add()
+        
+        textbox2.password true
+        textbox3.multiline true
+        
       
       
