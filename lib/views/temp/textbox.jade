@@ -29,8 +29,15 @@ html
         textbox2 = add()
         textbox3 = add()
         
+        textbox1.watermark 'Watermark'
         textbox2.password true
         textbox3.multiline true
         
+        txt = textbox1
+        txt.focus()
+        console.log 'textbox.hasFocus()', txt.hasFocus()
+        
+        txt.onEnter (e) -> console.log 'ENTER', e
+        txt.onEscape (e) -> console.log 'ESC', e
       
       
