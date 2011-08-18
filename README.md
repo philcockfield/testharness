@@ -6,11 +6,10 @@ Visual test harness for rich client-side JavaScript applications.
 
 ### Install using NPM
 
-
     npm install testharness
-    
+  
 
-### Running from Express
+### Including TestHarness in your [Express](http://expressjs.com/) application
 
 ```coffee-script
 
@@ -39,6 +38,28 @@ option to `configure` like this:
   require('testharness').configure app, baseUrl: '/foo'
 
 ```
+
+## For Developing TestHarness
+
+### Starting the Development Server
+To run the server:
+
+    node app
+
+To run in auto-restart mode while developing, first install
+[nodemon](https://github.com/remy/nodemon):
+
+    npm install -g nodemon
+
+Then to start the server, from the application folder:
+
+    nodemon app.js
+
+### Development Home Page
+This page provides an index into the various test and UI facets of the FavStar development project:
+
+    http://localhost:3000/dev
+
 
 ## Licence
 
