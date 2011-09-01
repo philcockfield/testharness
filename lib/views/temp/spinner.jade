@@ -1,0 +1,39 @@
+!!!
+html
+  head
+    title= title
+    link(rel='stylesheet', href="/core/stylesheets/core/controls/textbox.css")
+
+    script(type='text/javascript', src='/core/libs.js')
+    script(type='text/javascript', src='/core/core.js')
+    
+    :stylus
+      body
+        padding 50px
+      
+      .sample_view
+        position relative
+        background orange
+        height 120px
+
+  body
+    :coffeescript
+      $ -> 
+        core = require 'open.client/core'
+        
+        class MyView extends core.mvc.View
+          constructor: (args) -> 
+            super className: 'sample_view'
+            @render()
+          render: -> 
+             @html '<h1>My View</h1>'
+        
+        view = new MyView()
+        $('body').append view.el
+        
+        spinner = new Spinner().spin()
+        view.el.append spinner.el
+        
+        
+        
+      

@@ -31,7 +31,7 @@ module.exports =
           # Start listening on requested port.
           app.listen options.port ?= 3000, =>
               console.log ''
-              console.log "[#{@title}] server listening on port #{app.address().port} in #{app.settings.env} mode"
+              console.log "[#{@title}] listening on port #{app.address().port} in #{app.settings.env} mode"
               console.log '---'
 
           # Finish up.
