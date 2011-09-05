@@ -1,0 +1,32 @@
+!!!
+html
+  head
+    title= title
+
+    script(type='text/javascript', src='/core/libs.js')
+    // script(type='text/javascript', src='/core/require.js')
+    
+    script
+    
+    
+    
+    :stylus
+      body
+        padding 50px
+      
+      .sample_view
+        position relative
+        background orange
+        height 120px
+
+  body
+    :coffeescript
+      $ -> 
+        m1 = require 'ns1/file1'
+        m2 = require 'ns1/file2'
+        m3 = require 'ns2/file3'
+        m4 = require 'ns2/file4'
+        
+        
+      
+        

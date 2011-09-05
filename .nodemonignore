@@ -1,3 +1,4 @@
 _tmp/*
 lib/public/*
 .git
+node_modules/open.core/test/*
