@@ -12,18 +12,14 @@ module.exports =
                                   - minified: false - returns the unminified, packed code.
   ###
   client: (callback) ->
-
-
       harness  = require 'harness.server'
       core     = harness.core
-      folder    = "#{harness.paths.public}/javascripts"
+      Builder    = core.util.javascript.Builder
 
-      folders = [
-        { source: harness.paths.client, target: '/harness.client' }
+      paths = [
+        { path: harness.paths.client, namespace: 'harness.client' }
       ]
-      compiler  = new core.util.javascript.Compiler(folders, header: harness.copyright( asComment: true ))
-      compiler.save
-            packed:         "#{folder}/harness.js"
-            minified:       "#{folder}/harness-min.js"
-            callback:       callback
+      
+      builder = new Builder(paths, header: harness.copyright( asComment: true ))
+      builder.save dir:"#{harness.paths.public}/javascripts", name:'harness', callback
 
