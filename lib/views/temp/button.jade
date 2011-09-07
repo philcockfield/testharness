@@ -1,0 +1,29 @@
+!!!
+html
+  head
+    title= title
+    link(rel='stylesheet', href="/core/stylesheets/core/controls/textbox.css")
+
+    script(type='text/javascript', src='/core/libs.js')
+    script(type='text/javascript', src='/core/core.js')
+    
+    :stylus
+      body
+        padding 50px
+      
+      .sample_view
+        position relative
+        background orange
+        height 120px
+
+  body
+    h1 Buttons
+    :coffeescript
+      $ -> 
+        core = require 'open.client/core'
+        console.log 'button', core
+        
+
+        
+        
+      
