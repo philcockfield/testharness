@@ -2,7 +2,9 @@
 html
   head
     title= title
-    link(rel='stylesheet', href="/core/stylesheets/core/controls/textbox.css")
+    
+    link(rel='stylesheet', href="/core/stylesheets/libs/normalize.css")
+    link(rel='stylesheet', href="/core/stylesheets/core/controls/buttons.css")
 
     script(type='text/javascript', src='/core/libs.js')
     script(type='text/javascript', src='/core/core.js')
@@ -15,15 +17,54 @@ html
         position relative
         background orange
         height 120px
+      
+      button.core_cmd
+        margin 10px
+      
+      hr
+        margin 35px 0px
+        border none
+        border-top solid 1px darken(white, 15%)
+        
 
   body
-    h1 Buttons
     :coffeescript
       $ -> 
-        core = require 'open.client/core'
-        console.log 'button', core
+        controls = require 'open.client/controls'
+        CommandButton = controls.CommandButton
         
+        # Create the buttons.
+        for el, i in $('button')
+            el = $(el)
+            btn = new CommandButton
+                          label:     el.data 'label'
+                          size:      el.data 'size'
+                          canToggle: el.data 'can-toggle'
+            el.replaceWith btn.el
+            
+            # Wire up events.
+            btn.onClick (e) -> 
+                source = e.source
+                console.log 'CLICK: ', source.label(), ' | selected: ', source.selected(), e
+            
+            
+        
+        
+    h1 Buttons
+    a(href='/core/stylesheets/core/controls/buttons.css', target='_blank') CSS
+    
+    hr
+    
+    button(data-size='s', data-label='Small')
+    button(data-size='m', data-label='Medium')
+    button(data-size='l', data-label='Large')
 
-        
+    hr
+
+    button(data-label='Standard')
+    button(data-label='Toggle', data-can-toggle='true')
+
+    
+
         
       

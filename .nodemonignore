@@ -1,4 +1,5 @@
 _tmp/*
 lib/public/*
+lib/views/*
 .git
 node_modules/open.core/test/*
