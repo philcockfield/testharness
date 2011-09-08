@@ -13,16 +13,16 @@ html
       body
         padding 50px
 
-      span.core_textbox
+      .core_textbox
         width 180px
-        margin 0px 20px
+        margin-left 20px
       
       .sample_view
         position relative
         background orange
         height 120px
       
-      button.core_cmd
+      .core_btn_cmd
         margin 10px
       
       hr
@@ -38,15 +38,20 @@ html
         controls = require 'open.client/controls'
         CmdButton = controls.CmdButton
 
-        buttons = -> $('button.core_cmd')
+        buttons = []
         updateLabels = -> 
-            for btn in buttons()
-                $(btn).text txtLabel.text()
+            for btn in buttons
+                btn.label txtLabel.text()
         
         updateWidths = -> 
             width = if txtWidth.empty() then null else txtWidth.text() + 'px' 
-            for btn in buttons()
-                $(btn).css 'width', width
+            for btn in buttons
+                btn.el.css 'width', width
+        
+        updateEnabled = (enabled) -> 
+            for btn in buttons
+              continue if btn is buttons.enable or btn is buttons.disable
+              btn.enabled enabled
         
         # Insert textbox for changing button labels.
         insertTextbox = (replace, watermark, text, onChanged) -> 
@@ -61,31 +66,41 @@ html
         
         # Create the buttons.
         for el, i in $('button')
-            el = $(el)
+            el  = $(el)
+            id  = el.attr('id')
             btn = new CmdButton
                           label:     el.data 'label'
                           size:      el.data 'size'
                           color:     el.data 'color'
                           canToggle: el.data 'can-toggle'
             el.replaceWith btn.el
-            
-            # console.log 'btn.color()', btn.color()
+            buttons.push btn
+            buttons[id] = btn if id?
             
             # Wire up events.
             btn.onClick (e) -> 
                 source = e.source
                 console.log 'CLICK: ', source.label()
         
+        # Enabled / Disabled handler
+        buttons.enable.onClick   (e) -> updateEnabled true
+        buttons.disable.onClick (e) -> updateEnabled false
+        
+        # Finish up.
+        buttons.toggle.selected true
+
         
     h1 Buttons
     a(href='/core/stylesheets/core/controls/buttons.css', target='_blank') CSS
     <textbox id="txtLabel"></textbox>
     <textbox id="txtWidth"></textbox>
+    button#enable(data-size='s', data-label='Enabled')
+    button#disable(data-size='s', data-label='Disabled')
 
     hr
 
-    button(data-label='Standard')
-    button(data-label='Toggle', data-can-toggle='true')
+    button#standard(data-label='Standard')
+    button#toggle(data-label='Toggle', data-can-toggle='true')
     
     hr
     
@@ -99,14 +114,3 @@ html
     button(data-size='m', data-label='Medium', data-color='blue')
     button(data-size='l', data-label='Large',  data-color='blue')
 
-    h3 Green
-    button(data-size='s', data-label='Small',  data-color='green')
-    button(data-size='m', data-label='Medium', data-color='green')
-    button(data-size='l', data-label='Large',  data-color='green')
-
-
-
-    
-
-        
-      
