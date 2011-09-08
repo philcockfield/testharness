@@ -3,9 +3,8 @@ html
   head
     title= title
 
-    link(rel='stylesheet', href="/core/stylesheets/libs/normalize.css")
-
     // Preload all [open.core] style-sheets forcing their creation.
+    link(rel='stylesheet', href="#{baseUrl}/core/stylesheets/core/base.css")
     link(rel='stylesheet', href="#{baseUrl}/core/stylesheets/core/controls.css")
     link(rel='stylesheet', href="#{baseUrl}/core/stylesheets/core/controls/textbox.css")
     link(rel='stylesheet', href="#{baseUrl}/core/stylesheets/core/controls/buttons.css")
@@ -34,6 +33,7 @@ html
 
       ### Stylesheets
       - [harness.css](#{baseUrl}/stylesheets/harness.css)
+      - [core/controls.css](/core/base.css)
       - [core/controls.css](/core/controls.css)
       - [core/normalize.css](/core/normalize.css)
 

@@ -1,22 +1,5 @@
 body {
-  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-div.core_bevel_highlight {
-  height: 1px;
-  background: #fff;
-}
-.core_text_emboss {
-  text-shadow: 0px 1px 0px #fff;
-}
-.core_abs_fill {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-}
-body {
-  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 15px "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 div.core_bevel_highlight {
   height: 1px;
@@ -95,23 +78,6 @@ div.th_harness.th_shell div.th_main div.th_region {
   bottom: 44px;
   overflow: hidden;
 }
-body {
-  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-div.core_bevel_highlight {
-  height: 1px;
-  background: #fff;
-}
-.core_text_emboss {
-  text-shadow: 0px 1px 0px #fff;
-}
-.core_abs_fill {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-}
 .th_left {
   background: #f2f2f2;
 }
@@ -140,23 +106,6 @@ div.core_bevel_highlight {
 .th_left .th_list_button.th_selected .th_label {
   text-shadow: none;
   color: #fff;
-}
-body {
-  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-div.core_bevel_highlight {
-  height: 1px;
-  background: #fff;
-}
-.core_text_emboss {
-  text-shadow: 0px 1px 0px #fff;
-}
-.core_abs_fill {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
 }
 div.th_main div.th_welcome {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0096ed), color-stop(1, #003c85));
