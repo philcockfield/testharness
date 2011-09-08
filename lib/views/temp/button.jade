@@ -31,12 +31,12 @@ html
     :coffeescript
       $ -> 
         controls = require 'open.client/controls'
-        CommandButton = controls.CommandButton
+        CmdButton = controls.CmdButton
         
         # Create the buttons.
         for el, i in $('button')
             el = $(el)
-            btn = new CommandButton
+            btn = new CmdButton
                           label:     el.data 'label'
                           size:      el.data 'size'
                           canToggle: el.data 'can-toggle'
@@ -45,9 +45,7 @@ html
             # Wire up events.
             btn.onClick (e) -> 
                 source = e.source
-                console.log 'CLICK: ', source.label(), ' | selected: ', source.selected(), e
-            
-            
+                console.log 'CLICK: ', source.label()
         
         
     h1 Buttons
