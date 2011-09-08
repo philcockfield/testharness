@@ -4,7 +4,7 @@ html
     title= title
     
     link(rel='stylesheet', href="/core/stylesheets/libs/normalize.css")
-    link(rel='stylesheet', href="/core/stylesheets/core/controls/buttons.css")
+    link(rel='stylesheet', href="/core/stylesheets/core/controls.css")
 
     script(type='text/javascript', src='/core/libs.js')
     script(type='text/javascript', src='/core/core.js')
@@ -12,6 +12,10 @@ html
     :stylus
       body
         padding 50px
+
+      span.core_textbox
+        width 180px
+        margin 0px 20px
       
       .sample_view
         position relative
@@ -30,8 +34,30 @@ html
   body
     :coffeescript
       $ -> 
+        # Setup initial conditions.
         controls = require 'open.client/controls'
         CmdButton = controls.CmdButton
+
+        buttons = -> $('button.core_cmd')
+        updateLabels = -> 
+            for btn in buttons()
+                $(btn).text txtLabel.text()
+        
+        updateWidths = -> 
+            width = if txtWidth.empty() then null else txtWidth.text() + 'px' 
+            for btn in buttons()
+                $(btn).css 'width', width
+        
+        # Insert textbox for changing button labels.
+        insertTextbox = (replace, watermark, text, onChanged) -> 
+                Textbox = controls.Textbox
+                textbox = new Textbox( watermark:watermark, text:text )
+                $(replace).replaceWith textbox.el
+                textbox.text.onChanged(onChanged) if onChanged?
+                textbox
+        
+        txtLabel = insertTextbox '#txtLabel', 'Label', null, updateLabels
+        txtWidth = insertTextbox '#txtWidth', 'Width (px)', null, updateWidths
         
         # Create the buttons.
         for el, i in $('button')
@@ -39,8 +65,11 @@ html
             btn = new CmdButton
                           label:     el.data 'label'
                           size:      el.data 'size'
+                          color:     el.data 'color'
                           canToggle: el.data 'can-toggle'
             el.replaceWith btn.el
+            
+            # console.log 'btn.color()', btn.color()
             
             # Wire up events.
             btn.onClick (e) -> 
@@ -50,17 +79,32 @@ html
         
     h1 Buttons
     a(href='/core/stylesheets/core/controls/buttons.css', target='_blank') CSS
-    
-    hr
-    
-    button(data-size='s', data-label='Small')
-    button(data-size='m', data-label='Medium')
-    button(data-size='l', data-label='Large')
+    <textbox id="txtLabel"></textbox>
+    <textbox id="txtWidth"></textbox>
 
     hr
 
     button(data-label='Standard')
     button(data-label='Toggle', data-can-toggle='true')
+    
+    hr
+    
+    h3 Silver
+    button(data-size='s', data-label='Small')
+    button(data-size='m', data-label='Medium')
+    button(data-size='l', data-label='Large')
+
+    h3 Blue
+    button(data-size='s', data-label='Small',  data-color='blue')
+    button(data-size='m', data-label='Medium', data-color='blue')
+    button(data-size='l', data-label='Large',  data-color='blue')
+
+    h3 Green
+    button(data-size='s', data-label='Small',  data-color='green')
+    button(data-size='m', data-label='Medium', data-color='green')
+    button(data-size='l', data-label='Large',  data-color='green')
+
+
 
     
 
