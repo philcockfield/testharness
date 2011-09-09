@@ -35,7 +35,9 @@ html
     :coffeescript
       $ -> 
         # Setup initial conditions.
-        controls = require 'open.client/controls'
+        
+        core      = require 'open.client/core'
+        controls  = require 'open.client/controls'
         CmdButton = controls.CmdButton
 
         buttons = []
@@ -73,6 +75,7 @@ html
                           size:      el.data 'size'
                           color:     el.data 'color'
                           canToggle: el.data 'can-toggle'
+                          selected:  core.util.toBool(el.data('selected'))
             el.replaceWith btn.el
             buttons.push btn
             buttons[id] = btn if id?
@@ -85,9 +88,6 @@ html
         # Enabled / Disabled handler
         buttons.enable.onClick   (e) -> updateEnabled true
         buttons.disable.onClick (e) -> updateEnabled false
-        
-        # Finish up.
-        buttons.toggle.selected true
 
 
     h1 Buttons
@@ -100,12 +100,13 @@ html
     hr
 
     button#standard(data-label='Standard')
-    button#toggle(data-label='Toggle', data-can-toggle='true')
+    button#toggleSilver(data-label='Toggle Silver', data-can-toggle='true', data-selected='true')
+    button#toggleBlue(data-label='Toggle Blue', data-can-toggle='true', data-color='blue', data-selected='true')
     
     hr
     
     h3 Silver
-    button(data-size='s', data-label='Small')
+    button(data-size='s', data-label='Small', data-default="size:'small', label:'Small'")
     button(data-size='m', data-label='Medium')
     button(data-size='l', data-label='Large')
 
